@@ -20,9 +20,9 @@ export default function Navbar() {
     <header className="bg-white sticky top-0 z-50 shadow">
       <nav className="mx-auto flex max-w-8xl items-center justify-between gap-5 px-4 py-3 lg:px-8 xl:px-16">
         {/* Logo */}
-        <a href="https://skillzrevotalent.com/" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img
-            src="https://skillzrevotalent.com/wp-content/uploads/2025/07/SkillzRevo-FINAL-LOGO_1.webp"
+            src="/wp-content/uploads/2025/07/SkillzRevo-FINAL-LOGO_1.webp"
             alt="SkillzRevo Logo"
             className="h-12 w-auto"
           />
@@ -38,7 +38,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="https://skillzrevotalent.com/about-us/"
+            href="/about-us"
             className="hover:text-[#1d8fff] border-b-2 border-transparent hover:border-[#1d8fff] transition-colors text-sm"
           >
             About Us
@@ -51,12 +51,12 @@ export default function Navbar() {
             </button>
             <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md border border-gray-200 w-56 z-50">
               {[
-                ["IT Recruitment", "https://skillzrevotalent.com/it-recruitment/"],
-                ["Contract Staffing", "https://skillzrevotalent.com/contract-staffing/"],
-                ["Permanent Staffing", "https://skillzrevotalent.com/permanent-staffing/"],
-                ["Remote Staffing & Offshore Teams", "https://skillzrevotalent.com/remote-staffing-offshore-teams/"],
-                ["Recruitment Process Outsourcing", "https://skillzrevotalent.com/recruitment-process-outsourcing/"],
-                ["Campus & Fresher Hiring", "https://skillzrevotalent.com/campus-fresher-hiring/"],
+                ["IT Recruitment", "/it-recruitment/"],
+                ["Contract Staffing", "/contract-staffing/"],
+                ["Permanent Staffing", "/permanent-staffing/"],
+                ["Remote Staffing & Offshore Teams", "/remote-staffing-offshore-teams/"],
+                ["Recruitment Process Outsourcing", "/recruitment-process-outsourcing/"],
+                ["Campus & Fresher Hiring", "/campus-fresher-hiring/"],
               ].map(([label, link]) => (
                 <a
                   key={label}
@@ -76,13 +76,13 @@ export default function Navbar() {
             </button>
             <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md border border-gray-200  w-56 z-50">
               <a
-                href="https://skillzrevotalent.com/channel-partner/"
+                href="/channel-partner/"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#1d8fff]"
               >
                 Staffing Partner
               </a>
               <a
-                href="https://testing.skillzrevo.com/Channel-Partner"
+                href="https://skillzrevo.com/channel-partner"
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#1d8fff]"
               >
                 Training Partner
@@ -114,11 +114,17 @@ export default function Navbar() {
               >
                 Corporate Training
               </a>
+              <a
+                href="https://consulting.skillzrevo.com/"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-[#1d8fff]"
+              >
+                Consulting Services
+              </a>
             </div>
           </div>
 
           <a
-            href="https://skillzrevotalent.com/contact-us/"
+            href="/contact-us/"
             className="hover:text-[#1d8fff] border-b-2 border-transparent hover:border-[#1d8fff] transition-colors text-sm"
           >
             Contact Us
@@ -139,7 +145,7 @@ export default function Navbar() {
         <div className="lg:hidden bg-white shadow-md border-t border-gray-200">
           <nav className="flex flex-col px-4 py-3 text-gray-700 font-medium space-y-2">
             <a href="https://skillzrevo.com/" className="py-2">Home</a>
-            <a href="https://skillzrevotalent.com/about-us/" className="py-2">About Us</a>
+            <a href="/about-us" className="py-2">About Us</a>
 
             {/* Staffing Services */}
             <div>
@@ -151,12 +157,12 @@ export default function Navbar() {
               </button>
               {openDropdown === "staffing" && (
                 <div className="ml-4 flex flex-col space-y-1">
-                  <a href="https://skillzrevotalent.com/it-recruitment/">IT Recruitment</a>
-                  <a href="https://skillzrevotalent.com/contract-staffing/">Contract Staffing</a>
-                  <a href="https://skillzrevotalent.com/permanent-staffing/">Permanent Staffing</a>
-                  <a href="https://skillzrevotalent.com/remote-staffing-offshore-teams/">Remote Staffing</a>
-                  <a href="https://skillzrevotalent.com/recruitment-process-outsourcing/">RPO</a>
-                  <a href="https://skillzrevotalent.com/campus-fresher-hiring/">Campus Hiring</a>
+                  <a href="/it-recruitment/">IT Recruitment</a>
+                  <a href="/contract-staffing/">Contract Staffing</a>
+                  <a href="/permanent-staffing/">Permanent Staffing</a>
+                  <a href="/remote-staffing-offshore-teams/">Remote Staffing</a>
+                  <a href="/recruitment-process-outsourcing/">RPO</a>
+                  <a href="/campus-fresher-hiring/">Campus Hiring</a>
                 </div>
               )}
             </div>
@@ -171,7 +177,7 @@ export default function Navbar() {
               </button>
               {openDropdown === "partner" && (
                 <div className="ml-4 flex flex-col space-y-1">
-                  <a href="https://skillzrevotalent.com/channel-partner/">Staffing Partner</a>
+                  <a href="/channel-partner/">Staffing Partner</a>
                   <a href="https://testing.skillzrevo.com/Channel-Partner">Training Partner</a>
                   <a href="https://consulting.skillzrevo.com/channel-partner/">Consulting Partner</a>
                 </div>
@@ -190,11 +196,13 @@ export default function Navbar() {
                 <div className="ml-4 flex flex-col space-y-1">
                   <a href="http://skillzrevo.com/">Training</a>
                   <a href="https://skillzrevo.com/corporate-training/">Corporate Training</a>
+                  <a href="https://consulting.skillzrevo.com/">Consulting Services</a>
+
                 </div>
               )}
             </div>
 
-            <a href="https://skillzrevotalent.com/contact-us/" className="py-2">Contact Us</a>
+            <a href="/contact-us/" className="py-2">Contact Us</a>
           </nav>
         </div>
       )}

@@ -36,7 +36,7 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-r from-blue-50 to-white py-20 min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative bg-gradient-to-b from-blue-300 to-blue-600 py-20 min-h-screen flex flex-col justify-center overflow-hidden">
       <div className="absolute top-0 left-0 z-0 w-screen opacity-30">
         <img
             src="/images/Skillzrevotalent-hero.jpg"
@@ -54,7 +54,7 @@ export default function HeroSection() {
         >
           <h1 className="text-4xl md:text-5xl text-center font-bold text-gray-900 leading-9 md:leading-13 tracking-tight">
             Connecting Talent with Opportunity.<br />
-            <span className="text-blue-600"> Powering the Future of Work.</span>
+            <span className="text-white"> Powering the Future of Work.</span>
           </h1>
           <p className="text-lg text-gray-900 leading-6 text-center max-w-2xl mx-auto">
             SkillzRevo Talent & Staffing helps businesses hire the right people,

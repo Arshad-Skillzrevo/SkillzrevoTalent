@@ -10,6 +10,7 @@ import FlexibleEngagement from "./components/FlexibleEngagement";
 import HiringProcess from "./components/HiringProcess";
 import FAQAccordion from "./components/FAQAccordion";
 import Blog from "./components/Blog";
+import CallToActionSection from "./components/CallToActionSection";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
     <FlexibleEngagement/>
     <ClientReviews/>
     <HiringProcess/>
+    <CallToActionSection/>
     <Blog/>
     <FAQAccordion/>
     </>

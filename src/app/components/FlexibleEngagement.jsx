@@ -14,11 +14,11 @@ export default function FlexibleEngagement() {
     <div className="bg-[#1d8fff] py-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Image */}
-        <div className="flex justify-center">
+        <div className="flex justify-center h-full">
           <img
-            src="https://placehold.co/500x500/png"
+            src="/images/result.jpg"
             alt="Business professionals"
-            className="rounded-sm shadow-lg object-cover"
+            className="rounded-sm shadow-lg h-full object-cover"
           />
         </div>
 
