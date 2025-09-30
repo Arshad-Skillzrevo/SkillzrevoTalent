@@ -116,7 +116,7 @@ const ITRecruitmentPage = () => {
       {/* Hero Section */}
       <motion.section 
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-orange-50"
+        className="relative h-[80vh] flex items-center justify-center bg-gradient-to-br from-blue-50 to-orange-50"
       >
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600')] bg-cover bg-center opacity-10"></div>
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
