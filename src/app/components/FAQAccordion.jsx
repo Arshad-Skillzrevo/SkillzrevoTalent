@@ -11,7 +11,7 @@ export default function SkillzRevoFAQ({ faqs }) {
 
   return (
     <section className="py-12 px-4 bg-white">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#1d8fff] mb-10 uppercase heading-oswald">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#1d8fff] mb-10  heading-oswald">
         Frequently Asked Questions – SkillzRevo Staffing Solutions
       </h2>
 

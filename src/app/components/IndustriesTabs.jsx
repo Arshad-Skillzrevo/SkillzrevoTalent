@@ -152,7 +152,7 @@ const IndustriesTabs = () => {
       {/* Tabs for desktop */}
       <div className="hidden lg:grid grid-cols-4 gap-6 ">
         {/* Left Tabs */}
-        <div className="bg-white rounded-xl shadow-md border col-span-1 p-4 flex flex-col gap-2">
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 col-span-1 p-4 flex flex-col gap-2">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             return (
@@ -178,7 +178,7 @@ const IndustriesTabs = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-xl shadow-md border col-span-3 p-6 flex flex-col gap-6 items-center justify-between"
+          className="bg-white rounded-xl shadow-md border border-gray-200 col-span-3 p-6 flex flex-col gap-6 items-center justify-between"
         >
           <div className="flex gap-4 justify-between w-full flex-col">
             <div className="flex items-center gap-4">

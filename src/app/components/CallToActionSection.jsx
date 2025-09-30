@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CallToActionSection() {
   return (
-    <section className="relative bg-gradient-to-r from-blue-50 to-white py-20 overflow-hidden">
+    <section className="relative bg-blue-950 py-20 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,12 +14,12 @@ export default function CallToActionSection() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Looking for your next hire? <br className="hidden md:block" />
             Or your next career move?
           </h2>
 
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-100 max-w-2xl mx-auto">
             Whether you're an employer searching for top talent or a professional
             ready to take the next step in your career, SkillzRevo Talent &
             Staffing connects you with the right opportunities.

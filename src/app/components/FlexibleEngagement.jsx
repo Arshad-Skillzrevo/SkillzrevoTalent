@@ -24,8 +24,8 @@ export default function FlexibleEngagement() {
 
         {/* Right Content */}
         <div className="text-white">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 leading-snug">
-            FLEXIBLE ENGAGEMENT. <br /> RELIABLE RESULTS.
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 camelcase leading-snug">
+            Flexible Engagements. <br /> Reliable Results.
           </h2>
           <p className="text-sm md:text-base mb-6 max-w-lg">
             We understand every organization has unique talent acquisition

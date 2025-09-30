@@ -16,8 +16,8 @@ export default function BlogSlider() {
 
   return (
     <section className="bg-orange-500">
-      <section className="py-10 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl text-[#fff] uppercase heading-oswald font-bold text-center mb-6">
+      <section className="py-12 md:py-16 max-w-7xl mx-auto">
+        <h2 className="text-4xl  text-[#fff]  heading-oswald font-bold text-center mb-6">
           Latest Blogs
         </h2>
         <Swiper
@@ -37,7 +37,7 @@ export default function BlogSlider() {
         >
           {posts.map((post) => (
             <SwiperSlide key={post.id}>
-              <div className="bg-white shadow-md border rounded-md m-2">
+              <div className="bg-white shadow-md border border-gray-200 rounded-md m-2">
                 {/* Image hidden for now */}
 
                 <img

@@ -11,7 +11,7 @@ export default function WhyChooseSkillzRevo() {
   return (
     <div className="relative w-full py-15 max-md:py-6 bg-[#feede7] px-6 max-md:px-4">
       <div className="mx-auto max-w-7xl">
-        <h2 className="text-orange-500 text-3xl sm:text-4xl  font-bold pb-2 uppercase heading-oswald">
+        <h2 className="text-orange-500 text-3xl sm:text-4xl  font-bold pb-2 camelcase heading-oswald">
           Why Choose SkillzRevo Talent?
         </h2>
         <p className="text-gray-600 text-lg max-w-3xl mb-10">

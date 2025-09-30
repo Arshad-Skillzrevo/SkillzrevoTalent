@@ -12,11 +12,12 @@ export default function CompanyIntro() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
+          className="flex justify-center h-full"
         >
           <img
             src="/images/about-us.jpg" // your image file here
             alt="Company Introduction"
-            className="w-full h-full object-cover rounded-sm shadow-xl"
+            className="h-full object-cover rounded-sm shadow-xl"
           />
         </motion.div>
 

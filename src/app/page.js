@@ -116,9 +116,10 @@ export default function Home() {
     <FlexibleEngagement/>
     <ClientReviews/>
     <HiringProcess/>
-    <CallToActionSection/>
     <Blog/>
     <FAQAccordion faqs={faqs}/>
+    <CallToActionSection/>
+
     </>
   );
 }
