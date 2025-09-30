@@ -13,7 +13,7 @@ const stats = [
     icon: <FaClock className="min-w-8 min-h-8 text-[#1d8fff] mx-auto" />,
   },
   {
-    value: "5M+ Candidate Database",
+    value: "5M+ Candidates Database",
     label: "Access verified talent pool across domains",
     icon: <FaUsers className="min-w-8 min-h-8 text-[#1d8fff] mx-auto" />,
   },
