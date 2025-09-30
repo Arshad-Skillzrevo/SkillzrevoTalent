@@ -100,7 +100,7 @@ const IndustriesTabs = () => {
 
   return (
     <section className="py-10 lg:py-20 px-6 lg:px-16 mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600 mb-8">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-[#1d8fff] mb-8">
         Industries We Serve
       </h2>
 
@@ -118,7 +118,7 @@ const IndustriesTabs = () => {
                 className="w-full flex justify-between items-center px-4 py-3 text-left font-medium text-gray-800 hover:bg-blue-50 transition"
               >
                 <div className="flex items-center gap-3">
-                  <Icon className="w-5 h-5 text-blue-600" />
+                  <Icon className="w-5 h-5 text-[#1d8fff]" />
                   {industry.title}
                 </div>
                 <span className="text-xl">
@@ -183,7 +183,7 @@ const IndustriesTabs = () => {
           <div className="flex gap-4 justify-between w-full flex-col">
             <div className="flex items-center gap-4">
               <div className="bg-blue-100 p-4 rounded-md">
-                <activeIndustry.icon className="w-10 h-10 text-blue-600" />
+                <activeIndustry.icon className="w-10 h-10 text-[#1d8fff]" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800">
                 {activeIndustry.title}

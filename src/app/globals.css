@@ -33,3 +33,24 @@ body {
   color: var(--foreground);
   font-family:  Helvetica, sans-serif;
 }
+
+
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 4px;
+  background: #1d8fff;
+  border-radius: 10px;
+}
+.custom-bullet li::before {
+  content: '◆︎';
+  margin-right: 0.5rem;
+  color: #fff; /* your brand color */
+}

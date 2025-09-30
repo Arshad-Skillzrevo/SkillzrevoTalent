@@ -112,7 +112,7 @@ export default function ServicesCards() {
       <div className="container mx-auto px-6 lg:px-16">
         <div className="text-left mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            Our <span className="text-blue-600">Services</span>
+            Our <span className="text-[#1d8fff]">Services</span>
           </h2>
           <p className="text-gray-600 mt-2">
             Tailored staffing solutions designed to meet unique organizational needs
@@ -141,7 +141,7 @@ export default function ServicesCards() {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center space-x-2">
-                  <service.icon className="h-5 w-5 text-blue-600" />
+                  <service.icon className="h-5 w-5 text-[#1d8fff]" />
                   <span>{service.title}</span>
                 </h3>
                 <ul className="space-y-2 mb-4">

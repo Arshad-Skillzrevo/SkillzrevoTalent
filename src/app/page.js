@@ -9,6 +9,7 @@ import ClientReviews from "./components/ClientReviews";
 import FlexibleEngagement from "./components/FlexibleEngagement";
 import HiringProcess from "./components/HiringProcess";
 import FAQAccordion from "./components/FAQAccordion";
+import Blog from "./components/Blog";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
     <FlexibleEngagement/>
     <ClientReviews/>
     <HiringProcess/>
+    <Blog/>
     <FAQAccordion/>
     </>
   );

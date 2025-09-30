@@ -28,7 +28,7 @@ export default function CompanyIntro() {
           className="space-y-6"
         >
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            About <span className="text-blue-600">SkillzRevo</span> Talent & Staffing
+            About <span className="text-[#1d8fff]">SkillzRevo</span> Talent & Staffing
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             At SkillzRevo Talent & Staffing, we go beyond traditional recruitment.
@@ -47,7 +47,7 @@ export default function CompanyIntro() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
             <div className="flex items-center space-x-3">
               <div className="p-3 bg-blue-50 rounded-full">
-                <Briefcase className="text-blue-600" />
+                <Briefcase className="text-[#1d8fff]" />
               </div>
               <span className="text-sm font-medium text-gray-700">
                 Permanent Hiring
