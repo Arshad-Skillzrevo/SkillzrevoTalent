@@ -22,9 +22,9 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
-            src="/wp-content/uploads/2025/07/SkillzRevo-FINAL-LOGO_1.webp"
+            src="/Logo.webp"
             alt="SkillzRevo Logo"
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </a>
 

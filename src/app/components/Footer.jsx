@@ -57,7 +57,7 @@ export default function Footer() {
           {/* Logo + About */}
           <div className="bg-[#ff5e14] py-6 px-2 lg:col-span-1 flex flex-col justify-between md:min-w-[220px] md:max-w-[250px]">
             <img
-              src="https://skillzrevotalent.com/wp-content/uploads/2025/07/SkillzRevo-FINAL-LOGO_1.webp"
+              src="/SkillzRevo_White.webp"
               alt="SkillzRevo Logo"
               className="w-[80%] mb-5 self-center object-cover"
             />
@@ -80,7 +80,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/about-us/"
+                    href="/about-us/"
                     className="hover:underline"
                   >
                     About Us
@@ -88,7 +88,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/channel-partner/"
+                    href="/channel-partner/"
                     className="hover:underline"
                   >
                     Channel Partner
@@ -96,7 +96,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/contact-us/"
+                    href="/contact-us/"
                     className="hover:underline"
                   >
                     Contact Us
@@ -114,7 +114,7 @@ export default function Footer() {
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/it-recruitment/"
+                    href="/it-recruitment/"
                     className="hover:underline"
                   >
                     IT Recruitment
@@ -122,7 +122,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/contract-staffing/"
+                    href="/contract-staffing/"
                     className="hover:underline"
                   >
                     Contract Staffing
@@ -130,7 +130,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/permanent-staffing/"
+                    href="/permanent-staffing/"
                     className="hover:underline"
                   >
                     Permanent Staffing
@@ -138,7 +138,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/remote-staffing-offshore-teams/"
+                    href="/remote-staffing-offshore-teams/"
                     className="hover:underline"
                   >
                     Remote Staffing & Offshore Teams
@@ -146,7 +146,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/recruitment-process-outsourcing/"
+                    href="/recruitment-process-outsourcing/"
                     className="hover:underline"
                   >
                     Recruitment Process Outsourcing
@@ -154,7 +154,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/campus-fresher-hiring/"
+                    href="/campus-fresher-hiring/"
                     className="hover:underline"
                   >
                     Campus & Fresher Hiring
@@ -167,18 +167,19 @@ export default function Footer() {
               <h4 className="text-lg font-bold mb-4">For Businesses</h4>
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
+                  <a
+                    href="https://skillzrevo.com/"
+                    className="hover:underline"
+                  >
+                    Training (Academy)
+                  </a>
+                </li>
+                <li>
                   <a href="/corporate-training" className="hover:underline">
                     Corporate Training
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://skillzrevotalent.com/"
-                    className="hover:underline"
-                  >
-                    Staffing
-                  </a>
-                </li>
+                
                 <li>
                   <a
                     href="https://consulting.skillzrevo.com/"
@@ -195,13 +196,13 @@ export default function Footer() {
               <h4 className="text-lg font-bold mb-4">Partner with Us</h4>
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
-                  <a href="channel-partner" className="hover:underline">
+                  <a href="https://skillzrevo.com/channel-partner" className="hover:underline">
                     Training Channel Partner
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://skillzrevotalent.com/channel-partner/"
+                    href="/channel-partner/"
                     className="hover:underline"
                   >
                     Staffing Channel Partner
@@ -248,10 +249,10 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8 content-center items-center justify-center mx-auto max-md:px-4 text-center border-t border-gray-700">
         <div className="flex md:flex-col justify-center md:justify-end text-xs max-md:mx-auto text-gray-400 md:text-white bg-[#ff5e14] py-4 gap-2 mt-2 md:mt-0 w-[250px]">
-          <a href="/ShippingandDelivery" className="hover:underline">
+          <a href="https://www.skillzrevo.com/ShippingandDelivery" className="hover:underline">
             Shipping & Delivery
           </a>
-          <a href="/cancellation-refund-policy" className="hover:underline">
+          <a href="https://www.skillzrevo.com/cancellation-refund-policy" className="hover:underline">
             Refund Policy
           </a>
         </div>
@@ -260,10 +261,10 @@ export default function Footer() {
           Reserved
         </p>
         <div className="flex justify-center md:justify-end text-xs text-gray-400 gap-4 mt-2 md:mt-0">
-          <a href="/TermsandConditions" className="hover:underline">
+          <a href="https://www.skillzrevo.com/TermsandConditions" className="hover:underline">
             Terms & Conditions
           </a>
-          <a href="/PrivacyPolicy" className="hover:underline">
+          <a href="https://www.skillzrevo.com/PrivacyPolicy" className="hover:underline">
             Privacy Policy
           </a>
         </div>
