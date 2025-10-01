@@ -211,9 +211,9 @@ export default function Page() {
                 Get Started Today
               </motion.button>
             </motion.div>
-            <motion.div variants={fadeInUp} className="relative">
+            <motion.div variants={fadeInUp} className="relative h-full">
               <div className="absolute -inset-4 bg-white opacity-10 rounded-3xl blur-2xl"></div>
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&h=500&fit=crop" alt="Business Meeting" className="rounded-2xl shadow-2xl object-cover h-full relative z-10" />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Business Meeting" className="rounded-xl shadow-2xl object-cover h-full relative z-10" />
             </motion.div>
           </div>
         </div>
@@ -395,7 +395,7 @@ export default function Page() {
         variants={staggerContainer}
         className="py-20 px-4 bg-white"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div variants={fadeInUp} className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Tools & Templates You'll Receive
@@ -418,7 +418,7 @@ export default function Page() {
                 <motion.div 
                   key={index}
                   whileHover={{ x: 10 }}
-                  className="flex items-center justify-start gap-4 bg-gradient-to-r from-blue-50 to-white p-3 rounded-xl border border-blue-100 hover:shadow-md transition-all"
+                  className="flex items-center justify-start gap-4 bg-gradient-to-r from-blue-50 to-white p-3 rounded-xl border border-blue-100 hover:shadow-md transition-all w-full"
                 >
                   <div className="bg-gradient-to-br from-blue-400 to-blue-500 text-white p-2 rounded-lg flex-shrink-0">
                     <item.icon className="text-xl" />
@@ -427,8 +427,8 @@ export default function Page() {
                 </motion.div>
               ))}
             </motion.div>
-            <motion.div variants={fadeInUp} className=" w-full">
-              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&h=500&fit=crop" alt="Tools" className="rounded-xl shadow-2xl h-fit relative z-10" />
+            <motion.div variants={fadeInUp} className="h-full w-full">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0" alt="Tools" className="rounded-xl shadow-2xl h-full object-cover relative z-10" />
             </motion.div>
           </div>
         </div>
@@ -589,7 +589,7 @@ export default function Page() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
                 Get Started With Skilzrevo Staffing Today!
               </h2>
               <p className="text-xl mb-8 text-blue-100 leading-relaxed">
@@ -626,10 +626,10 @@ export default function Page() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="hidden md:block relative"
+              className="hidden h-full md:block relative"
             >
               <div className="absolute -inset-4 bg-white opacity-10 rounded-3xl blur-2xl"></div>
-              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700&h=500&fit=crop" alt="Success" className="rounded-2xl shadow-2xl relative z-10" />
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72" alt="Success" className="rounded-2xl shadow-xl h-full object-cover relative z-10" />
             </motion.div>
           </div>
         </div>
