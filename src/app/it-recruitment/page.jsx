@@ -24,6 +24,7 @@ import {
   FaGraduationCap,
   FaIndustry,
 } from "react-icons/fa";
+import FAQAccordion from "../components/FAQAccordion";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -38,6 +39,94 @@ const AnimatedSection = ({ children, className = "" }) => {
     </motion.div>
   );
 };
+
+const faqs = [
+  {
+    q: "1. What is IT recruitment and how does SkillzRevo help with it?",
+    a: "IT recruitment involves sourcing, screening, and placing qualified technology professionals for various IT roles. SkillzRevo specializes in identifying top tech talent for startups, enterprises, and global IT firms through a streamlined and customized hiring process.",
+  },
+  {
+    q: "2. What types of IT roles do you recruit for?",
+    a: (
+      <ul className="list-disc pl-6">
+        <li>Software Developers (Frontend, Backend, Full Stack)</li>
+        <li>Data Scientists & Data Analysts</li>
+        <li>Cloud Engineers & DevOps Professionals</li>
+        <li>Cybersecurity Experts</li>
+        <li>AI & Machine Learning Engineers</li>
+        <li>IT Project Managers</li>
+        <li>UI/UX Designers</li>
+        <li>QA/Test Engineers</li>
+      </ul>
+    ),
+  },
+  {
+    q: "3. Do you provide recruitment for both permanent and contract roles?",
+    a: "Yes, we offer both permanent hiring and contract staffing solutions depending on your business needs.",
+  },
+  {
+    q: "4. How do you ensure the quality of IT candidates?",
+    a: (
+      <ul className="list-disc pl-6">
+        <li>Technical screening and assessments</li>
+        <li>Soft skills and culture fit evaluation</li>
+        <li>Background verification</li>
+        <li>Client-specific interview rounds</li>
+      </ul>
+    ),
+  },
+  {
+    q: "5. What industries do you serve with IT recruitment?",
+    a: (
+      <ul className="list-disc pl-6">
+        <li>Information Technology & Services</li>
+        <li>BFSI (Banking, Financial Services, and Insurance)</li>
+        <li>Healthcare & Pharma</li>
+        <li>E-commerce & Retail</li>
+        <li>EdTech, FinTech, and more</li>
+      </ul>
+    ),
+  },
+  {
+    q: "6. Can you help with bulk or campus hiring for tech talent?",
+    a: "Yes, SkillzRevo has strong capabilities in bulk hiring and campus recruitment for tech roles, helping organizations build future-ready teams efficiently.",
+  },
+  {
+    q: "7. How fast can you close a position?",
+    a: "Our average turnaround time varies based on the role complexity, but typically we can share screened profiles within 24 to 72 hours for most IT positions.",
+  },
+  {
+    q: "8. Do you offer offshore or remote IT staffing services?",
+    a: "Absolutely. We provide remote staffing and offshore development team solutions to help businesses scale cost-effectively and access a global talent pool.",
+  },
+  {
+    q: "9. What is your pricing model or recruitment fee structure?",
+    a: (
+      <p>
+        Our pricing is flexible and tailored based on the nature of the hiring
+        (permanent/contract), volume, and seniority of roles. Please contact our
+        sales team for a customized quote.
+      </p>
+    ),
+  },
+  {
+    q: "10. How do I get started with SkillzRevo IT Recruitment?",
+    a: (
+      <p>
+        You can simply reach out to us via the contact form, email{" "}
+        <a
+          href="mailto:staffing@skillzrevo.com"
+          className="text-orange-500 underline"
+        >
+          staffing@skillzrevo.com
+        </a>
+        , or call us directly. Our team will schedule a consultation to
+        understand your hiring needs and propose the best recruitment strategy.
+      </p>
+    ),
+  },
+];
+
 
 const ITRecruitmentPage = () => {
   const { scrollY } = useScroll();
@@ -424,6 +513,7 @@ const ITRecruitmentPage = () => {
           </div>
         </div>
       </AnimatedSection>
+      <FAQAccordion faqs={faqs} />
     </div>
   );
 };

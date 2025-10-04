@@ -161,7 +161,7 @@ const IndustriesTabs = () => {
                 onClick={() => setActiveIndex(index)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg text-left font-medium transition-all ${
                   index === activeIndex
-                    ? "bg-blue-600 text-white shadow"
+                    ? "bg-[#1d8fff] text-white shadow"
                     : "hover:bg-blue-50 text-gray-700"
                 }`}
               >

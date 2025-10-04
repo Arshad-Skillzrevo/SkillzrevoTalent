@@ -57,6 +57,7 @@ export default function Navbar() {
                 ["Remote Staffing & Offshore Teams", "/remote-staffing-offshore-teams/"],
                 ["Recruitment Process Outsourcing", "/recruitment-process-outsourcing/"],
                 ["Campus & Fresher Hiring", "/campus-fresher-hiring/"],
+                ["Train-to-Hire", "/train-to-hire/"],
               ].map(([label, link]) => (
                 <a
                   key={label}
