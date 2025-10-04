@@ -175,7 +175,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/corporate-training" className="hover:underline">
+                  <a href="https://skillzrevo.com/corporate-training" className="hover:underline">
                     Corporate Training
                   </a>
                 </li>

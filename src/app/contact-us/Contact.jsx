@@ -15,6 +15,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 import MainSegments from "./MainSegments";
+import { FaClock, FaEnvelope, FaMapPin, FaPhone } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -102,7 +103,7 @@ export default function Contact() {
   return (
     <div className="min-w-full min-h-screen bg-white">
       {/* HERO SECTION */}
-      <div className="relative flex justify-center items-center py-32 bg-gray-900">
+      <div className="relative flex flex-col justify-center items-center gap-4 py-36 bg-gray-900">
         <img
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
           alt="Contact Background"
@@ -118,6 +119,14 @@ export default function Contact() {
         >
           We Are Here to Help!
         </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="text-xl text-center font-bold text-gray-300 z-10 drop-shadow-xl"
+        >
+          Contact Our Expert Team Today!
+        </motion.h2>
       </div>
 
       {/* Heading */}
@@ -128,12 +137,10 @@ export default function Contact() {
         viewport={{ once: true }}
         className="bg-gray-50"
       >
-        <div className="text-center text-3xl md:text-5xl font-bold my-12 text-[#1d8fff] uppercase">
-          Contact SkillzRevo
-        </div>
+        
 
         {/* Contact Info + Form */}
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 py-8">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 py-8">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -142,36 +149,31 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <p className="text-gray-600 text-lg">
-              For any questions, concerns, or assistance related to our
-              services, please reach out using the following:
-            </p>
-
-            {[
-              {
-                icon: <EnvelopeIcon className="text-[#1d8fff] h-6 w-6" />,
-                title: "Customer Support Email",
-                value: "support@skillzrevo.com",
-              },
-              {
-                icon: <PhoneIcon className="text-[#1d8fff] h-6 w-6" />,
-                title: "Customer Support Phone",
-                value: "+1 (987) 654-8569, +1 (456) 877-4695",
-              },
-              {
-                icon: <PaperAirplaneIcon className="text-[#1d8fff] h-6 w-6" />,
-                title: "Fax and Mail",
-                value: "+1 (123) 978-1811",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-start gap-4">
-                {item.icon}
-                <div>
-                  <h4 className="font-bold text-gray-800">{item.title}</h4>
-                  <p>{item.value}</p>
-                </div>
-              </div>
-            ))}
+            <div className="text-left text-3xl md:text-4xl font-bold  text-[#1d8fff] uppercase">
+          Contact Us
+        </div>
+            <div>
+                          
+                          <ul className="space-y-3 text-base text-gray-700">
+                            <li className="flex items-start gap-2 max-w-md">
+                              <FaMapPin className="mt-1 text-[#ff6900] min-w-6 min-h-6" />
+                              SkillzRevo Solutions Pvt Ltd, Plot No.- GH01A, Sector-16C T-11
+                              Suite No.-1901, Gautam Buddha Nagar, Greater Noida
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <FaClock className="text-[#ff6900] min-w-6 min-h-6" /> 8:30 AM –
+                              8:30 PM EST
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <FaEnvelope className="text-[#ff6900] min-w-6 min-h-6" />{" "}
+                              staffing@skillzrevo.com
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <FaPhone className="text-[#ff6900] min-w-6 min-h-6" /> +91
+                              96323 47896
+                            </li>
+                          </ul>
+                        </div>
           </motion.div>
 
           {/* Enquiry Form */}
