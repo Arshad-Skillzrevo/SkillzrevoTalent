@@ -41,7 +41,7 @@ const industries = [
     title: "Manufacturing & Engineering",
     description:
       "Enable smart factories through automation, predictive maintenance, robotics, and real-time data visualization.",
-    image: "/images/industry4.jpg",
+    image: "/images/manufacture.jpg",
     icon: Factory,
   },
   {
@@ -69,7 +69,7 @@ const industries = [
     title: "Energy, Oil & Gas",
     description:
       "Deliver domain experts for energy transformation, compliance, and safety-critical operations.",
-    image: "/images/government.png",
+    image: "/images/government.jpg",
     icon: Flame,
   },
   {
@@ -83,7 +83,7 @@ const industries = [
     title: "Startups & Emerging Businesses",
     description:
       "Transform your business with agile digital strategies, flexible staffing, and rapid innovation expertise.",
-    image: "/images/fcmg.jpg",
+    image: "/images/startup.jpg",
     icon: Rocket,
   },
 ];
@@ -178,7 +178,7 @@ const IndustriesTabs = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-xl shadow-md border border-gray-200 col-span-3 p-6 flex flex-col gap-6 items-center justify-between"
+          className="bg-white rounded-xl shadow-md border border-gray-200 col-span-3 p-6 flex flex-col gap-2 items-center justify-between"
         >
           <div className="flex gap-4 justify-between w-full flex-col">
             <div className="flex items-center gap-4">

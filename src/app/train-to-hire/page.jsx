@@ -35,6 +35,7 @@ import {
   FaUserCog, // New Icon for Talent Pool
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -285,12 +286,18 @@ const TrainToHirePage = () => {
             Source, Train & Deploy project-ready professionals tailored to your specific business needs.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Start a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Program Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/train-to-hire"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Train to Hire"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/train-to-hire"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Train to Hire"
+            />
           </div>
         </div>
       </motion.section>
@@ -540,12 +547,18 @@ const TrainToHirePage = () => {
             Hire trained, certified, and project-ready professionals through our Train-to-Hire Program and accelerate your business growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#ff6900] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#ff6900] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Request Program Details
-            </button>
+           <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/train-to-hire"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Train to Hire"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/train-to-hire"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Train to Hire"
+            />
           </div>
         </div>
       </AnimatedSection>

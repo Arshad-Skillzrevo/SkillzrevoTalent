@@ -51,7 +51,7 @@ export default function CompanyIntro() {
                 <Briefcase className="text-[#1d8fff]" />
               </div>
               <span className="text-sm font-medium text-gray-700">
-                Permanent Hiring
+                We Hire Professionals
               </span>
             </div>
             <div className="flex items-center space-x-3">
@@ -59,7 +59,7 @@ export default function CompanyIntro() {
                 <Users className="text-orange-500" />
               </div>
               <span className="text-sm font-medium text-gray-700">
-                Contract Staffing
+                We Find Perfect Match
               </span>
             </div>
             <div className="flex items-center space-x-3">
@@ -67,13 +67,13 @@ export default function CompanyIntro() {
                 <Layers className="text-green-600" />
               </div>
               <span className="text-sm font-medium text-gray-700">
-                Offshore & RPO Teams
+                We Build Teams at Scale
               </span>
             </div>
           </div>
 
           <Link
-            href="/about"
+            href="/about-us"
             className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-medium rounded-sm shadow hover:bg-blue-700 transition"
           >
             Learn More About Us →

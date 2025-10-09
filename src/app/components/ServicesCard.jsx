@@ -136,12 +136,12 @@ export default function ServicesCards() {
   return (
  
 
- <section className="bg-slate-50 font-sans">
-      <div className="container mx-auto px-6 py-24 sm:py-32 lg:px-8">
+ <section className="bg-blue-50 font-sans">
+      <div className="container mx-auto px-6 py-16 max-md:py-8 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Our Professional <span className="text-blue-600">Services</span>
+            Our Professional <span className="text-[#1d8fff]">Services</span>
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             We provide tailored staffing solutions designed to meet your unique organizational needs and drive success.
@@ -168,7 +168,7 @@ export default function ServicesCards() {
               </div>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                  <service.icon className="h-6 w-6 mr-3 text-blue-600" />
+                  <service.icon className="h-6 w-6 mr-3 text-[#1d8fff]" />
                   {service.title}
                 </h3>
                 <ul className="space-y-1 mb-6 text-gray-600 flex-grow">

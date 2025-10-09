@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import PopupForm from "./PopupForm";
 
 export default function CallToActionSection() {
   return (
@@ -26,15 +27,22 @@ export default function CallToActionSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
+            
+            <PopupForm
+              ctaTitle="Request Talent"
+              pageUrl="skillzrevotalent.com"
+              className="px-6 py-3 text-[#1d8fff] bg-white font-semibold rounded-sm hover:bg-gray-100 transition shadow-lg"
+            />
+            {/* <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="skillzrevotalent.com"
+              className="px-8 py-4 bg-[#1d8fff] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="RPO"
+            /> */}
             <Link
-              href="/hire-talent"
-              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-sm shadow hover:bg-blue-700 transition flex items-center justify-center gap-2"
-            >
-              Request Talent
-            </Link>
-            <Link
-              href="/find-jobs"
-              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-sm shadow hover:bg-orange-600 transition flex items-center justify-center gap-2"
+              href="https://skillzrevo.com/work-with-us"
+              target="_blank"
+              className="px-6 py-3 bg-orange-500 text-white font-medium rounded-sm shadow hover:bg-orange-600 transition"
             >
               Submit Resume
             </Link>

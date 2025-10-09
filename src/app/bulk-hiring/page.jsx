@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+// import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -34,6 +34,8 @@ import {
   FaSitemap, // New Icon for Process/Scale
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -285,12 +287,18 @@ const BulkHiringPage = () => {
             End-to-end high-volume recruitment services to build your workforce faster, smarter, and more efficiently.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Start a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Request Proposal
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/bulk-hiring"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Bulk Hiring"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/bulk-hiring"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Bulk Hiring"
+            />
           </div>
         </div>
       </motion.section>
@@ -540,12 +548,18 @@ const BulkHiringPage = () => {
             Accelerate high-volume recruitment with our AI-powered, process-driven Bulk Hiring Solutions designed for speed, efficiency, and quality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Request Bulk Hiring Proposal
-            </button>
+            <PopupForm
+              ctaTitle="Schedule a Consultation"
+              pageUrl="/bulk-hiring"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Bulk Hiring"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/bulk-hiring"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Bulk Hiring"
+            />
           </div>
         </div>
       </AnimatedSection>

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -33,6 +32,9 @@ import {
   FaTag, // New Icon for Cost/Pricing
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
+
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -248,12 +250,18 @@ const ITRecruitmentPage = () => {
             End-to-end hiring solutions to scale your workforce efficiently and cost-effectively.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Get Started Today
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download RPO Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/recruitment-process-outsourcing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="RPO"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/recruitment-process-outsourcing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="RPO"
+            />
           </div>
         </div>
       </motion.section>
@@ -467,12 +475,18 @@ const ITRecruitmentPage = () => {
             Hire smarter, faster, and better. Stop managing processes and start acquiring talent that drives growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Free Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download RPO Service Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/recruitment-process-outsourcing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="RPO"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/recruitment-process-outsourcing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="RPO"
+            />
           </div>
         </div>
       </AnimatedSection>

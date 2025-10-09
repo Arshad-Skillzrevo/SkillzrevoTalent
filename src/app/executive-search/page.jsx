@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaUserTie,
@@ -29,6 +29,8 @@ import {
   FaHeadset,
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -96,9 +98,18 @@ const faqs = [
       <>
         <p>We offer three primary models:</p>
         <ul className="list-disc pl-6 mt-2 space-y-2">
-          <li><strong>Retained Executive Search:</strong> For critical, high-impact roles.</li>
-          <li><strong>Confidential Search:</strong> For sensitive or replacement leadership needs.</li>
-          <li><strong>Strategic Talent Pipelining:</strong> Building long-term leadership succession pipelines.</li>
+          <li>
+            <strong>Retained Executive Search:</strong> For critical,
+            high-impact roles.
+          </li>
+          <li>
+            <strong>Confidential Search:</strong> For sensitive or replacement
+            leadership needs.
+          </li>
+          <li>
+            <strong>Strategic Talent Pipelining:</strong> Building long-term
+            leadership succession pipelines.
+          </li>
         </ul>
       </>
     ),
@@ -162,7 +173,8 @@ const Page = () => {
   const keyHighlights = [
     {
       title: "CXO-Level Expertise",
-      description: "Hiring across CEO, CFO, CTO, CHRO, CMO, and Business Head roles.",
+      description:
+        "Hiring across CEO, CFO, CTO, CHRO, CMO, and Business Head roles.",
       icon: <FaUserTie className="text-4xl" />,
     },
     {
@@ -187,7 +199,8 @@ const Page = () => {
     },
     {
       title: "Culture Fit Assurance",
-      description: "Alignment with organizational values, vision, and long-term goals.",
+      description:
+        "Alignment with organizational values, vision, and long-term goals.",
       icon: <FaHandshake className="text-4xl" />,
     },
   ];
@@ -196,7 +209,8 @@ const Page = () => {
   const processSteps = [
     {
       title: "Needs Analysis",
-      description: "Define role expectations, KPIs, and leadership competencies.",
+      description:
+        "Define role expectations, KPIs, and leadership competencies.",
       icon: FaSearch,
     },
     {
@@ -211,7 +225,8 @@ const Page = () => {
     },
     {
       title: "Evaluation & Shortlisting",
-      description: "Behavioral interviews, psychometric assessments, and references.",
+      description:
+        "Behavioral interviews, psychometric assessments, and references.",
       icon: FaClipboardCheck,
     },
     {
@@ -226,7 +241,8 @@ const Page = () => {
     {
       category: "Retained Executive Search",
       icon: <FaBriefcase />,
-      description: "For critical leadership positions with strategic importance.",
+      description:
+        "For critical leadership positions with strategic importance.",
     },
     {
       category: "Confidential Search",
@@ -236,7 +252,8 @@ const Page = () => {
     {
       category: "Strategic Talent Pipelining",
       icon: <FaProjectDiagram />,
-      description: "Long-term leadership succession and bench-strength planning.",
+      description:
+        "Long-term leadership succession and bench-strength planning.",
     },
   ];
 
@@ -307,7 +324,8 @@ const Page = () => {
   const businessBenefits = [
     {
       title: "Faster Executive Hiring",
-      description: "Reduce search timelines with a dedicated leadership search team.",
+      description:
+        "Reduce search timelines with a dedicated leadership search team.",
       icon: <FaRocket />,
     },
     {
@@ -317,7 +335,8 @@ const Page = () => {
     },
     {
       title: "Strategic Alignment",
-      description: "Leaders who align with your business vision and growth roadmap.",
+      description:
+        "Leaders who align with your business vision and growth roadmap.",
       icon: <FaBullseye />,
     },
     {
@@ -355,15 +374,22 @@ const Page = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
           >
-            Empowering organizations to attract, assess, and onboard exceptional leaders who shape the future of business.
+            Empowering organizations to attract, assess, and onboard exceptional
+            leaders who shape the future of business.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg">
-              Request Executive Search Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/executive-search"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Executive Search"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/executive-search"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Executive Search"
+            />
           </div>
         </div>
       </motion.section>
@@ -372,13 +398,23 @@ const Page = () => {
       <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
         <div className="text-center">
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-6">
-            In today’s dynamic business landscape, the success of an organization depends on visionary leadership. Finding leaders who can navigate uncertainty, inspire teams, and deliver measurable impact requires a partner with deep market understanding and strategic insight.
+            In today’s dynamic business landscape, the success of an
+            organization depends on visionary leadership. Finding leaders who
+            can navigate uncertainty, inspire teams, and deliver measurable
+            impact requires a partner with deep market understanding and
+            strategic insight.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-6">
-            At SkillzRevo Talent, our Leadership & Executive Search Services are designed to identify, engage, and place high-impact leaders — from mid-level management to C-suite executives — across industries and geographies.
+            At SkillzRevo Talent, our Leadership & Executive Search Services are
+            designed to identify, engage, and place high-impact leaders — from
+            mid-level management to C-suite executives — across industries and
+            geographies.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto font-medium text-gray-800">
-            Our approach goes beyond traditional headhunting. We combine market intelligence, behavioral assessments, and leadership analytics to deliver leaders who not only fit your culture but also elevate your business performance.
+            Our approach goes beyond traditional headhunting. We combine market
+            intelligence, behavioral assessments, and leadership analytics to
+            deliver leaders who not only fit your culture but also elevate your
+            business performance.
           </p>
         </div>
       </AnimatedSection>
@@ -391,13 +427,18 @@ const Page = () => {
               What is Leadership & Executive Search?
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              Leadership & Executive Search is a specialized recruitment service focused on sourcing top-tier leaders who can drive organizational growth and transformation.
+              Leadership & Executive Search is a specialized recruitment service
+              focused on sourcing top-tier leaders who can drive organizational
+              growth and transformation.
             </p>
             <p className="text-lg text-gray-700 mb-4">
-              Through a blend of strategic research, networking, and confidential outreach, we connect you with accomplished professionals who align with your business goals and cultural DNA.
+              Through a blend of strategic research, networking, and
+              confidential outreach, we connect you with accomplished
+              professionals who align with your business goals and cultural DNA.
             </p>
             <p className="text-xl font-semibold text-[#ff6900]">
-              We don’t just find candidates — we identify leaders who create impact.
+              We don’t just find candidates — we identify leaders who create
+              impact.
             </p>
           </div>
           <div className="flex justify-center">
@@ -435,7 +476,7 @@ const Page = () => {
       </AnimatedSection>
 
       {/* Section 4 – How It Works (Search Process) */}
-<AnimatedSection className="py-20 bg-gradient-to-tl from-orange-400 via-orange-600 to-orange-400">
+      <AnimatedSection className="py-20 bg-gradient-to-tl from-orange-400 via-orange-600 to-orange-400">
         <div className="container  mx-auto flex flex-col md:items-center px-4">
           <h2 className="text-3xl md:text-4xl font-bold md:text-center text-white mb-15">
             Our Search Process
@@ -474,7 +515,7 @@ const Page = () => {
           </div>
         </div>
       </AnimatedSection>
-      
+
       {/* Section 5 – Engagement Models */}
       <AnimatedSection className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -483,8 +524,13 @@ const Page = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {engagementModels.map((model, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg border-b-4 border-blue-500">
-                <div className="text-4xl text-blue-500 mb-4 inline-block">{model.icon}</div>
+              <div
+                key={index}
+                className="bg-white p-8 rounded-xl shadow-lg border-b-4 border-blue-500"
+              >
+                <div className="text-4xl text-blue-500 mb-4 inline-block">
+                  {model.icon}
+                </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">
                   {model.category}
                 </h3>
@@ -494,24 +540,37 @@ const Page = () => {
           </div>
         </div>
       </AnimatedSection>
-      
+
       {/* Section 6 – Why Partner with SkillzRevo Talent? */}
       <AnimatedSection className="py-20 px-4 bg-[#1d8fff] text-white">
-          <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Why Partner with SkillzRevo Talent?</h2>
-              <div className="bg-white text-gray-800 rounded-lg shadow-2xl overflow-hidden">
-                  <div className="grid grid-cols-1 md:grid-cols-2">
-                      <div className="p-6 font-bold text-xl bg-blue-100">Differentiators</div>
-                      <div className="p-6 font-bold text-xl bg-blue-200">Business Benefits</div>
-                  </div>
-                  {differentiators.map((item, index) => (
-                      <div key={index} className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-200">
-                          <div className="p-4 flex items-center">{item.differentiator}</div>
-                          <div className="p-4 bg-gray-50 flex items-center">{item.benefit}</div>
-                      </div>
-                  ))}
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+            Why Partner with SkillzRevo Talent?
+          </h2>
+          <div className="bg-white text-gray-800 rounded-lg shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="p-6 font-bold text-xl bg-blue-100">
+                Differentiators
               </div>
+              <div className="p-6 font-bold text-xl bg-blue-200">
+                Business Benefits
+              </div>
+            </div>
+            {differentiators.map((item, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-1 md:grid-cols-2 border-t border-gray-200"
+              >
+                <div className="p-4 flex items-center">
+                  {item.differentiator}
+                </div>
+                <div className="p-4 bg-gray-50 flex items-center">
+                  {item.benefit}
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
       </AnimatedSection>
 
       {/* Section 7 – Roles We Specialize In */}
@@ -528,7 +587,10 @@ const Page = () => {
                 </h3>
                 <ul className="space-y-3">
                   {role.positions.map((position, i) => (
-                    <li key={i} className="text-gray-700 flex items-start gap-3">
+                    <li
+                      key={i}
+                      className="text-gray-700 flex items-start gap-3"
+                    >
                       <FaUserTie className="text-[#ff6900] mt-1 flex-shrink-0" />
                       <span>{position}</span>
                     </li>
@@ -548,7 +610,10 @@ const Page = () => {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
             {industries.map((industry, index) => (
-              <div key={index} className="bg-white/10 p-6 rounded-xl text-center flex flex-col items-center justify-center shadow-lg">
+              <div
+                key={index}
+                className="bg-white/10 p-6 rounded-xl text-center flex flex-col items-center justify-center shadow-lg"
+              >
                 <div className="text-4xl mb-3">{industry.icon}</div>
                 <p className="font-semibold text-lg">{industry.name}</p>
               </div>
@@ -556,7 +621,7 @@ const Page = () => {
           </div>
         </div>
       </AnimatedSection>
-      
+
       {/* Section 9 – Business Benefits */}
       <AnimatedSection className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto text-center">
@@ -565,9 +630,14 @@ const Page = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {businessBenefits.map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 text-center">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center gap-4 text-center"
+              >
                 <div className="text-4xl text-[#1d8fff]">{benefit.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900">{benefit.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900">
+                  {benefit.title}
+                </h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </div>
             ))}
@@ -582,19 +652,26 @@ const Page = () => {
             Build Your Leadership Pipeline with SkillzRevo Talent
           </h2>
           <p className="text-xl mb-10">
-            Find, evaluate, and onboard visionary leaders who will shape the future of your organization.
+            Find, evaluate, and onboard visionary leaders who will shape the
+            future of your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg">
-              Request Executive Search Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/executive-search"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Executive Search"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/executive-search"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Executive Search"
+            />
           </div>
         </div>
       </AnimatedSection>
-      
+
       <FAQAccordion faqs={faqs} />
     </div>
   );

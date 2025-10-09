@@ -25,6 +25,7 @@ import {
   FaIndustry,
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -281,12 +282,18 @@ const ITRecruitmentPage = () => {
             Hire top IT talent faster, smarter, and cost-effectively.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Get Started
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/it-recruitment"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="IT Recruitment"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/it-recruitment"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="IT Recruitment"
+            />
           </div>
         </div>
       </motion.section>
@@ -504,12 +511,19 @@ const ITRecruitmentPage = () => {
             Empower your business with the right technology professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Schedule a Consultation"
+              pageUrl="/it-recruitment"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="IT Recruitment"
+            />
+            
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/it-recruitment"
+              className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2"
+              service="IT Recruitment"
+            />
           </div>
         </div>
       </AnimatedSection>

@@ -22,6 +22,10 @@ const navLinks = [
       { label: "Recruitment Process Outsourcing", href: "/recruitment-process-outsourcing" },
       { label: "Campus & Fresher Hiring", href: "/campus-fresher-hiring" },
       { label: "Train-to-Hire", href: "/train-to-hire" },
+      { label: "Contact-to-Hire", href: "/contact-to-hire" },
+      { label: "Bulk Hiring", href: "/bulk-hiring" },
+      { label: "Executive Search", href: "/executive-search" },
+      { label: "Vendor Management Solutions (VMS)", href: "/vendor-management-solutions" },
     ],
   },
   {

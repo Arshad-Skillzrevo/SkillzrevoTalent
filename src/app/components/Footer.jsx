@@ -9,11 +9,11 @@ import { FaMapPin, FaClock, FaEnvelope, FaPhone } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0e457b] text-white">
+    <footer className="bg-[#0e457b] text-white pb-2">
       {/* Social Bar */}
       <div className="bg-[#1d8fff] py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white heading-oswald uppercase">
+          <h2 className="text-2xl md:text-3xl font-bold max-md:text-center tracking-tight text-white heading-oswald uppercase">
             Follow Us on Social Media
           </h2>
           <div className="flex space-x-2 text-white">
@@ -52,10 +52,10 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto max-md:px-4">
+      <div className="mx-auto max-md:px-4 px-12">
         <div className="flex max-md:flex-col justify-between w-full gap-6 md:gap-8">
           {/* Logo + About */}
-          <div className="bg-[#ff5e14] py-6 px-2 lg:col-span-1 flex flex-col justify-between md:min-w-[220px] md:max-w-[250px]">
+          <div className="bg-[#ff5e14] py-6 px-2 lg:col-span-1 flex flex-col  md:min-w-[220px] md:max-w-[250px]">
             <img
               src="/SkillzRevo_White.webp"
               alt="SkillzRevo Logo"
@@ -68,71 +68,24 @@ export default function Footer() {
           </div>
 
           {/* Links Sections */}
-          <div className="flex max-md:flex-col justify-between w-full gap-5 py-12">
-            {/* Useful Links */}
-            {/* <div>
-              <h4 className="text-lg font-bold mb-4">Useful Links</h4>
-              <ul className="text-sm space-y-2 custom-bullet">
-                <li>
-                  <a href="https://skillzrevo.com/" className="hover:underline">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about-us/"
-                    className="hover:underline"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/channel-partner/"
-                    className="hover:underline"
-                  >
-                    Channel Partner
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/contact-us/"
-                    className="hover:underline"
-                  >
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div> */}
-
-            {/* For Businesses */}
-
+          <div className="flex max-md:flex-col justify-between flex-wrap px-4 w-full gap-5 py-12">
 
             {/* Staffing Services */}
             <div>
               <h4 className="text-lg font-bold mb-4">Staffing Services</h4>
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
-                  <a
-                    href="/it-recruitment/"
-                    className="hover:underline"
-                  >
+                  <a href="/it-recruitment/" className="hover:underline">
                     IT Recruitment
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/contract-staffing/"
-                    className="hover:underline"
-                  >
+                  <a href="/contract-staffing/" className="hover:underline">
                     Contract Staffing
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/permanent-staffing/"
-                    className="hover:underline"
-                  >
+                  <a href="/permanent-staffing/" className="hover:underline">
                     Permanent Staffing
                   </a>
                 </li>
@@ -153,33 +106,59 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
+                  <a href="/campus-fresher-hiring/" className="hover:underline">
+                    Campus & Fresher Hiring
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/train-to-hire/" className="hover:underline">
+                    Train-to-Hire
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact-to-hire/" className="hover:underline">
+                    Contact-to-Hire
+                  </a>
+                </li>
+                <li>
+                  <a href="/bulk-hiring/" className="hover:underline">
+                    Bulk Hiring
+                  </a>
+                </li>
+                <li>
+                  <a href="/executive-search/" className="hover:underline">
+                    Executive Search
+                  </a>
+                </li>
+                <li>
                   <a
-                    href="/campus-fresher-hiring/"
+                    href="/vendor-management-solutions/"
                     className="hover:underline"
                   >
-                    Campus & Fresher Hiring
+                    Vendor Management Solutions (VMS)
                   </a>
                 </li>
               </ul>
             </div>
 
-                        <div>
+            <div>
               <h4 className="text-lg font-bold mb-4">For Businesses</h4>
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
-                  <a
-                    href="https://skillzrevo.com/"
-                    className="hover:underline"
-                  >
+                  <a href="https://skillzrevo.com/" className="hover:underline">
                     Training (Academy)
                   </a>
                 </li>
                 <li>
-                  <a href="https://skillzrevo.com/corporate-training" className="hover:underline">
+                  <a
+                    href="https://skillzrevo.com/corporate-training"
+                    className="hover:underline"
+                  >
                     Corporate Training
                   </a>
                 </li>
-                
+
                 <li>
                   <a
                     href="https://consulting.skillzrevo.com/"
@@ -196,15 +175,15 @@ export default function Footer() {
               <h4 className="text-lg font-bold mb-4">Partner with Us</h4>
               <ul className="text-sm space-y-2 custom-bullet">
                 <li>
-                  <a href="https://skillzrevo.com/channel-partner" className="hover:underline">
+                  <a
+                    href="https://skillzrevo.com/channel-partner"
+                    className="hover:underline"
+                  >
                     Training Channel Partner
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/channel-partner/"
-                    className="hover:underline"
-                  >
+                  <a href="/channel-partner/" className="hover:underline">
                     Staffing Channel Partner
                   </a>
                 </li>
@@ -237,8 +216,8 @@ export default function Footer() {
                   staffing@skillzrevo.com
                 </li>
                 <li className="flex items-center gap-2">
-                  <FaPhone className="text-white min-w-4 min-h-4" /> +91
-                  96323 47896
+                  <FaPhone className="text-white min-w-4 min-h-4" /> +91 96323
+                  47896
                 </li>
               </ul>
             </div>
@@ -248,11 +227,18 @@ export default function Footer() {
 
       {/* Copyright Bar */}
       <div className="max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8 content-center items-center justify-center mx-auto max-md:px-4 text-center border-t border-gray-700">
-        <div className="flex md:flex-col justify-center md:justify-end text-xs max-md:mx-auto text-gray-400 md:text-white bg-[#ff5e14] py-4 gap-2 mt-2 md:mt-0 w-[250px]">
-          <a href="https://www.skillzrevo.com/ShippingandDelivery" className="hover:underline">
-            Shipping & Delivery
+        <div className="flex justify-center md:justify-end text-xs max-md:mx-auto text-gray-400  py-4 gap-2 mt-2 md:mt-0 w-[250px]">
+          <a
+            href="https://www.skillzrevo.com/ShippingandDelivery"
+            className="hover:underline"
+          >
+            Shipping & Delivery 
           </a>
-          <a href="https://www.skillzrevo.com/cancellation-refund-policy" className="hover:underline">
+          |
+          <a
+            href="https://www.skillzrevo.com/cancellation-refund-policy"
+            className="hover:underline"
+          >
             Refund Policy
           </a>
         </div>
@@ -261,10 +247,16 @@ export default function Footer() {
           Reserved
         </p>
         <div className="flex justify-center md:justify-end text-xs text-gray-400 gap-4 mt-2 md:mt-0">
-          <a href="https://www.skillzrevo.com/TermsandConditions" className="hover:underline">
+          <a
+            href="https://www.skillzrevo.com/TermsandConditions"
+            className="hover:underline"
+          >
             Terms & Conditions
           </a>
-          <a href="https://www.skillzrevo.com/PrivacyPolicy" className="hover:underline">
+          <a
+            href="https://www.skillzrevo.com/PrivacyPolicy"
+            className="hover:underline"
+          >
             Privacy Policy
           </a>
         </div>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+// import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -30,6 +30,8 @@ import {
   FaExchangeAlt, // New Icon for C2H
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -293,12 +295,18 @@ const Page = () => {
             Flexible, scalable, and cost-effective workforce solutions tailored to your short-term and project-based needs.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Request Proposal
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaHandshake /> Book Free Consultation
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/contract-staffing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Contract Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/contract-staffing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Contract Staffing"
+            />
           </div>
         </div>
       </motion.section>
@@ -515,12 +523,18 @@ const Page = () => {
             Discover how our Contract Staffing solutions can help you scale faster and achieve your business goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Request a Proposal
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaHeadset /> Talk to an Expert
-            </button>
+            <PopupForm
+              ctaTitle="Request a proposal"
+              pageUrl="/contract-staffing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Contract Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/contract-staffing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Contract Staffing"
+            />
           </div>
         </div>
       </AnimatedSection>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+// import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -30,6 +30,8 @@ import {
   FaExchangeAlt,
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -73,8 +75,9 @@ const faqs = [
     a: (
       <p>
         We use a multi-layered screening process that includes behavioral
-        interviews, psychometric assessments, and detailed cultural fit analysis,
-        ensuring the candidate's values align with your organization's mission.
+        interviews, psychometric assessments, and detailed cultural fit
+        analysis, ensuring the candidate's values align with your organization's
+        mission.
       </p>
     ),
   },
@@ -98,9 +101,9 @@ const faqs = [
     q: "9. How is your pricing structured for permanent hiring?",
     a: (
       <p>
-        Our fee structure is transparent and typically based on a percentage of the
-        placed candidate's annual compensation, varying based on the difficulty and
-        volume of the roles.
+        Our fee structure is transparent and typically based on a percentage of
+        the placed candidate's annual compensation, varying based on the
+        difficulty and volume of the roles.
       </p>
     ),
   },
@@ -108,14 +111,13 @@ const faqs = [
     q: "10. What kind of post-hiring support do you provide?",
     a: (
       <p>
-        We provide post-placement follow-ups for both the client and the candidate
-        to ensure a smooth transition and integration into the new role and
-        organizational culture.
+        We provide post-placement follow-ups for both the client and the
+        candidate to ensure a smooth transition and integration into the new
+        role and organizational culture.
       </p>
     ),
   },
 ];
-
 
 const PermanentStaffingPage = () => {
   const { scrollY } = useScroll();
@@ -171,7 +173,8 @@ const PermanentStaffingPage = () => {
   const processSteps = [
     {
       title: "Understanding Your Needs",
-      description: "Define job requirements, skills, and organizational culture in detail.",
+      description:
+        "Define job requirements, skills, and organizational culture in detail.",
       icon: FaSearch,
     },
     {
@@ -188,17 +191,20 @@ const PermanentStaffingPage = () => {
     },
     {
       title: "Interviews & Coordination",
-      description: "End-to-end scheduling, communication, and candidate preparation.",
+      description:
+        "End-to-end scheduling, communication, and candidate preparation.",
       icon: FaCalendarAlt,
     },
     {
       title: "Offer & Onboarding",
-      description: "Salary negotiation, offer rollout, and support for a smooth joining process.",
+      description:
+        "Salary negotiation, offer rollout, and support for a smooth joining process.",
       icon: FaHandshake,
     },
     {
       title: "Post-Placement Follow-up",
-      description: "Engaging with candidate and client to ensure seamless integration and satisfaction.",
+      description:
+        "Engaging with candidate and client to ensure seamless integration and satisfaction.",
       icon: FaHeadset,
     },
   ];
@@ -209,20 +215,12 @@ const PermanentStaffingPage = () => {
     {
       category: "IT & Digital Leadership",
       icon: <FaCode />,
-      positions: [
-        "CTO/CIO",
-        "VP of Engineering",
-        "Product Managers",
-      ],
+      positions: ["CTO/CIO", "VP of Engineering", "Product Managers"],
     },
     {
       category: "Finance & BFSI",
       icon: <FaBuilding />,
-      positions: [
-        "Financial Analysts",
-        "Risk Managers",
-        "Audit Professionals",
-      ],
+      positions: ["Financial Analysts", "Risk Managers", "Audit Professionals"],
     },
     {
       category: "Sales & Marketing",
@@ -289,15 +287,23 @@ const PermanentStaffingPage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
           >
-            SkillzRevo Talent helps organizations find, attract, and retain full-time employees who fit your culture, values, and business goals.
+            SkillzRevo Talent helps organizations find, attract, and retain
+            full-time employees who fit your culture, values, and business
+            goals.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Request a Proposal
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaHandshake /> Book a Free Consultation
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/permanent-staffing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Permanent Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/permanent-staffing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Permanent Staffing"
+            />
           </div>
         </div>
       </motion.section>
@@ -309,10 +315,19 @@ const PermanentStaffingPage = () => {
             Your Strategic Partner for Full-Time Hiring
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            At SkillzRevo Talent, we understand that your business success depends on hiring the right people. Our <span className="font-semibold">Permanent Staffing Solutions</span> are tailored to ensure you get high-performing, culturally aligned professionals for crucial full-time roles.
+            At SkillzRevo Talent, we understand that your business success
+            depends on hiring the right people. Our{" "}
+            <span className="font-semibold">Permanent Staffing Solutions</span>{" "}
+            are tailored to ensure you get high-performing, culturally aligned
+            professionals for crucial full-time roles.
           </p>
           <p className="text-xl font-semibold text-[#ff6900] mt-4 max-w-4xl mx-auto  gap-2">
-            With deep industry expertise, an extensive talent network, and AI-powered recruitment processes, we deliver <span className="font-semibold">faster, smarter, and cost-effective</span> staffing solutions.
+            With deep industry expertise, an extensive talent network, and
+            AI-powered recruitment processes, we deliver{" "}
+            <span className="font-semibold">
+              faster, smarter, and cost-effective
+            </span>{" "}
+            staffing solutions.
           </p>
         </div>
       </AnimatedSection>
@@ -325,10 +340,18 @@ const PermanentStaffingPage = () => {
               What is Permanent Staffing?
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              Permanent Staffing is the essential process of hiring <span className="font-semibold">full-time employees</span> who become a core part of your organization's team, culture, and payroll. These individuals are key to achieving long-term strategic goals and maintaining institutional knowledge.
+              Permanent Staffing is the essential process of hiring{" "}
+              <span className="font-semibold">full-time employees</span> who
+              become a core part of your organization's team, culture, and
+              payroll. These individuals are key to achieving long-term
+              strategic goals and maintaining institutional knowledge.
             </p>
             <p className="text-lg text-gray-700 mb-4">
-                As your strategic hiring partner, SkillzRevo Talent manages the entire lifecycle — from sourcing and screening to negotiations and onboarding — so you can focus on <span className="font-semibold">growth</span> while we handle the recruitment complexity.
+              As your strategic hiring partner, SkillzRevo Talent manages the
+              entire lifecycle — from sourcing and screening to negotiations and
+              onboarding — so you can focus on{" "}
+              <span className="font-semibold">growth</span> while we handle the
+              recruitment complexity.
             </p>
           </div>
           <div className="flex justify-center">
@@ -416,7 +439,7 @@ const PermanentStaffingPage = () => {
                   </div>
 
                   {/* vertical line for mobile */}
-                  {index < processSteps.length -1 && (
+                  {index < processSteps.length - 1 && (
                     <div className="absolute bottom-0 h-full w-1 bg-blue-200 left-6 md:hidden"></div>
                   )}
                 </div>
@@ -425,7 +448,6 @@ const PermanentStaffingPage = () => {
           </div>
         </div>
       </AnimatedSection>
-
 
       {/* High Value Roles (Using the 'Roles' structure for a secondary feature) */}
       <AnimatedSection className="py-20 px-4 bg-white">
@@ -436,7 +458,9 @@ const PermanentStaffingPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highValueRoles.map((role, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl bg-blue-200 p-4 rounded-full w-fit text-[#1d8fff] mb-4">{role.icon}</div>
+                <div className="text-4xl bg-blue-200 p-4 rounded-full w-fit text-[#1d8fff] mb-4">
+                  {role.icon}
+                </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">
                   {role.category}
                 </h3>
@@ -490,7 +514,8 @@ const PermanentStaffingPage = () => {
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-lg flex items-start gap-4"
               >
-                <FaBolt className="text-3xl text-[#1d8fff] flex-shrink-0 mt-1" /> {/* Icon for Speed/Efficiency */}
+                <FaBolt className="text-3xl text-[#1d8fff] flex-shrink-0 mt-1" />{" "}
+                {/* Icon for Speed/Efficiency */}
                 <p className="text-lg text-gray-700 text-left">{benefit}</p>
               </div>
             ))}
@@ -505,15 +530,22 @@ const PermanentStaffingPage = () => {
             Find Your Next Star Employee with SkillzRevo Talent
           </h2>
           <p className="text-xl mb-10">
-            From niche hires to high-volume recruitment, we deliver talent that drives success.
+            From niche hires to high-volume recruitment, we deliver talent that
+            drives success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Get a Free Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Request a Staffing Proposal
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/permanent-staffing"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Permanent Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/permanent-staffing"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Permanent Staffing"
+            />
           </div>
         </div>
       </AnimatedSection>

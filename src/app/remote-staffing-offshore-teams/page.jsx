@@ -35,6 +35,7 @@ import {
   FaLaptopCode, // For IT/Remote Work
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -60,7 +61,11 @@ const faqs = [
     q: "2. How does SkillzRevo Talent’s offshore staffing model work?",
     a: (
       <p>
-        We identify, vet, and hire top talent from global talent pools (especially India's). These professionals work exclusively for you, seamlessly integrated into your projects. We handle all local **payroll, compliance, HR administration, and infrastructure**, while you maintain full operational control.
+        We identify, vet, and hire top talent from global talent pools
+        (especially India's). These professionals work exclusively for you,
+        seamlessly integrated into your projects. We handle all local **payroll,
+        compliance, HR administration, and infrastructure**, while you maintain
+        full operational control.
       </p>
     ),
   },
@@ -69,9 +74,14 @@ const faqs = [
     a: (
       <ul className="list-disc pl-6">
         <li>**Cost Savings** up to 60% on salary and infrastructure costs.</li>
-        <li>Access to a **global, pre-vetted talent pool** without geographical constraints.</li>
+        <li>
+          Access to a **global, pre-vetted talent pool** without geographical
+          constraints.
+        </li>
         <li>**Scalability** for fast workforce expansion or contraction.</li>
-        <li>Potential for **24/7 Productivity** across different time zones.</li>
+        <li>
+          Potential for **24/7 Productivity** across different time zones.
+        </li>
       </ul>
     ),
   },
@@ -88,7 +98,6 @@ const faqs = [
     a: "Virtually any role can be remote, but we specialize in Technology (Developers, DevOps), Data & Analytics, Digital Marketing, Customer Support, Finance & Accounting, and Creative roles, which benefit significantly from the cost and talent arbitrage.",
   },
 ];
-
 
 const RemoteStaffingPage = () => {
   const { scrollY } = useScroll();
@@ -144,7 +153,8 @@ const RemoteStaffingPage = () => {
   const processSteps = [
     {
       title: "1. Requirement Analysis",
-      description: "Assess project scope, skill needs, cultural fit, and resource requirements.",
+      description:
+        "Assess project scope, skill needs, cultural fit, and resource requirements.",
       icon: FaSearch,
     },
     {
@@ -161,17 +171,20 @@ const RemoteStaffingPage = () => {
     },
     {
       title: "4. Onboarding & Setup",
-      description: "Seamless integration, tool provision, security protocols, and compliance setup.",
+      description:
+        "Seamless integration, tool provision, security protocols, and compliance setup.",
       icon: FaLaptopCode,
     },
     {
       title: "5. Payroll & Compliance",
-      description: "Handling all contracts, taxation, insurance, benefits, and local HR administration.",
+      description:
+        "Handling all contracts, taxation, insurance, benefits, and local HR administration.",
       icon: FaShieldAlt,
     },
     {
       title: "6. Performance Tracking",
-      description: "Transparent, real-time monthly performance reports and dedicated account management.",
+      description:
+        "Transparent, real-time monthly performance reports and dedicated account management.",
       icon: FaChartLine,
     },
   ];
@@ -190,11 +203,7 @@ const RemoteStaffingPage = () => {
     {
       category: "Data & Analytics",
       icon: <FaDatabase />,
-      positions: [
-        "Data Scientists",
-        "AI/ML Engineers",
-        "BI Analysts",
-      ],
+      positions: ["Data Scientists", "AI/ML Engineers", "BI Analysts"],
     },
     {
       category: "Digital Marketing",
@@ -242,22 +251,26 @@ const RemoteStaffingPage = () => {
   const engagementModels = [
     {
       title: "Full-Time Dedicated Remote Staffing",
-      description: "Ideal for long-term, core operational roles. The professional works 100% exclusively for you, integrated into your team structure.",
+      description:
+        "Ideal for long-term, core operational roles. The professional works 100% exclusively for you, integrated into your team structure.",
       icon: <FaUserTie />,
     },
     {
       title: "Project-Based Offshore Teams",
-      description: "Perfect for fixed-duration assignments or specific product launches. Get a full team for a set time with clear deliverables.",
+      description:
+        "Perfect for fixed-duration assignments or specific product launches. Get a full team for a set time with clear deliverables.",
       icon: <FaProjectDiagram />,
     },
     {
       title: "Hybrid Model",
-      description: "Strategically combining the strengths of your local team with the cost-efficiency and scale of remote and offshore talent.",
+      description:
+        "Strategically combining the strengths of your local team with the cost-efficiency and scale of remote and offshore talent.",
       icon: <FaUsersCog />,
     },
     {
       title: "Build-Operate-Transfer (BOT)",
-      description: "For companies aiming for a permanent global presence: we establish and run the center until you are ready to take over full ownership.",
+      description:
+        "For companies aiming for a permanent global presence: we establish and run the center until you are ready to take over full ownership.",
       icon: <FaExchangeAlt />,
     },
   ];
@@ -285,15 +298,23 @@ const RemoteStaffingPage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
           >
-            Access top global talent, scale operations, and reduce costs — without geographical limits.
+            Access top global talent, scale operations, and reduce costs —
+            without geographical limits.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#ff6900] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Get Started Now
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#ff6900] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Brochure
-            </button>
+           
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/remote-staffing-offshore-teams"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Remote Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/remote-staffing-offshore-teams"
+              className="px-8 py-4 bg-[#1d8fff] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Remote Staffing"
+            />
           </div>
         </div>
       </motion.section>
@@ -305,10 +326,16 @@ const RemoteStaffingPage = () => {
             Build a Borderless, High-Performing Workforce
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            In today’s digital-first, borderless workplace, businesses need access to the **best talent without geographical limitations**. SkillzRevo Talent enables you to build high-performing remote teams and offshore staffing solutions that reduce costs, improve scalability, and provide potential 24/7 productivity.
+            In today’s digital-first, borderless workplace, businesses need
+            access to the **best talent without geographical limitations**.
+            SkillzRevo Talent enables you to build high-performing remote teams
+            and offshore staffing solutions that reduce costs, improve
+            scalability, and provide potential 24/7 productivity.
           </p>
           <p className="text-xl font-semibold text-[#1d8fff] mt-4 max-w-4xl mx-auto flex items-center justify-center gap-2">
-            We empower you to hire top talent across India and overseas, while handling **payroll, compliance, HR, and onboarding** — allowing you to focus entirely on your core business growth.
+            We empower you to hire top talent across India and overseas, while
+            handling **payroll, compliance, HR, and onboarding** — allowing you
+            to focus entirely on your core business growth.
           </p>
         </div>
       </AnimatedSection>
@@ -321,13 +348,21 @@ const RemoteStaffingPage = () => {
               Understanding Remote Staffing and Offshore Solutions
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              **Remote Staffing** allows companies to hire skilled professionals who work remotely while being dedicated to your projects. They integrate directly into your team, regardless of their physical location.
+              **Remote Staffing** allows companies to hire skilled professionals
+              who work remotely while being dedicated to your projects. They
+              integrate directly into your team, regardless of their physical
+              location.
             </p>
             <p className="text-lg text-gray-700 mb-4 border-l-4 border-[#ff6900] pl-4">
-                **Offshore Teams** take this further by establishing a dedicated workforce in another country (e.g., India), helping reduce operational and infrastructure costs while tapping into massive, high-skill talent pools.
+              **Offshore Teams** take this further by establishing a dedicated
+              workforce in another country (e.g., India), helping reduce
+              operational and infrastructure costs while tapping into massive,
+              high-skill talent pools.
             </p>
             <p className="text-md font-medium text-gray-800">
-                With SkillzRevo Talent, you get pre-vetted, highly skilled professionals working exclusively for you, either on our payroll (Offshore) or yours (Remote).
+              With SkillzRevo Talent, you get pre-vetted, highly skilled
+              professionals working exclusively for you, either on our payroll
+              (Offshore) or yours (Remote).
             </p>
           </div>
           <div className="flex justify-center">
@@ -391,7 +426,7 @@ const RemoteStaffingPage = () => {
                   </div>
 
                   {/* vertical line for mobile */}
-                  {index < processSteps.length -1 && (
+                  {index < processSteps.length - 1 && (
                     <div className="absolute bottom-0 h-full w-1 bg-blue-200 left-6 md:hidden"></div>
                   )}
                 </div>
@@ -409,8 +444,13 @@ const RemoteStaffingPage = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highValueRoles.map((role, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#1d8fff]">
-                <div className="text-4xl bg-blue-100 p-4 rounded-full w-fit text-[#1d8fff] mb-4">{role.icon}</div>
+              <div
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#1d8fff]"
+              >
+                <div className="text-4xl bg-blue-100 p-4 rounded-full w-fit text-[#1d8fff] mb-4">
+                  {role.icon}
+                </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">
                   {role.category}
                 </h3>
@@ -464,7 +504,7 @@ const RemoteStaffingPage = () => {
               whileHover={{ y: -5 }}
               className="bg-white p-8 rounded-xl shadow-lg border-t-4 border-[#1d8fff] flex flex-col items-center text-center"
             >
-              <div className="text-[#1d8fff] bg-blue-100 p-4 rounded-full w-fit mb-4">
+              <div className="text-[#1d8fff] bg-blue-100 text-4xl p-4 rounded-full w-fit mb-4">
                 {model.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900">
@@ -500,18 +540,26 @@ const RemoteStaffingPage = () => {
       <AnimatedSection className="py-20 px-4 bg-[#1d8fff] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Go Global. Scale Faster. Build Your Dream Offshore Team with SkillzRevo Talent.
+            Go Global. Scale Faster. Build Your Dream Offshore Team with
+            SkillzRevo Talent.
           </h2>
           <p className="text-xl mb-10">
-            Hire top remote professionals or set up offshore teams without operational hassles and focus on your core business.
+            Hire top remote professionals or set up offshore teams without
+            operational hassles and focus on your core business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Remote Staffing Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/remote-staffing-offshore-teams"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Remote Staffing"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/remote-staffing-offshore-teams"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Remote Staffing"
+            />
           </div>
         </div>
       </AnimatedSection>

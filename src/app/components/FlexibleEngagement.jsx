@@ -1,5 +1,6 @@
 "use client";
 import { FaCheckSquare } from "react-icons/fa";
+import PopupForm from "./PopupForm";
 
 export default function FlexibleEngagement() {
   const services = [
@@ -42,9 +43,12 @@ export default function FlexibleEngagement() {
             ))}
           </ul>
 
-          <button className="bg-white text-[#1d8fff] px-6 py-3 font-semibold rounded-sm shadow hover:bg-gray-100 transition">
-            Contact Us
-          </button>
+
+          <PopupForm
+                        ctaTitle="Get in Touch"
+                        pageUrl="skillzrevotalent.com"
+                        className="px-6 py-3 text-[#1d8fff] bg-white font-semibold rounded-sm hover:bg-gray-100 transition shadow-lg"
+                      />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -32,6 +32,8 @@ import {
   FaTrophy, // Icon for Best Talent
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
+import React from "react";
+import PopupForm from "../components/PopupForm";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -273,12 +275,18 @@ const CampusHiringPage = () => {
             Access top talent from leading colleges and universities across India, ready to drive innovation.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Start Campus Hiring
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Hiring Solutions Brochure
-            </button>
+            <PopupForm
+              ctaTitle="Get Started"
+              pageUrl="/campus-fresher-hiring"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Campus & Freshers Hiring"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/campus-fresher-hiring"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Campus & Freshers Hiring"
+            />
           </div>
         </div>
       </motion.section>
@@ -488,12 +496,19 @@ const CampusHiringPage = () => {
             Hire job-ready freshers from top campuses across India and accelerate your business growth today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-              Schedule a Campus Hiring Consultation
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#1d8fff] transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <FaDownload /> Download Campus Hiring Brochure
-            </button>
+           <PopupForm
+              ctaTitle="Schedule a Consultation"
+              pageUrl="/campus-fresher-hiring"
+              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+              service="Campus & Freshers Hiring"
+            />
+            <PopupForm
+              ctaTitle="Download Brochure"
+              pageUrl="/campus-fresher-hiring"
+              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
+              service="Campus & Freshers Hiring"
+            />
+            
           </div>
         </div>
       </AnimatedSection>
