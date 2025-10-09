@@ -75,11 +75,14 @@ export default function PopupForm({
 
     try {
       // 🔹 Replace with your NeoDove integration endpoint
-      const response = await fetch("https://4606bd36-c5fd-4702-b793-059cd091a766.neodove.com/integration/custom/df242b29-14fc-4eff-91bc-3137ad158120/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://4606bd36-c5fd-4702-b793-059cd091a766.neodove.com/integration/custom/df242b29-14fc-4eff-91bc-3137ad158120/leads",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       if (response.ok) {
         setSuccess(true);
@@ -172,7 +175,10 @@ export default function PopupForm({
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 text-gray-800">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 text-gray-800"
+                >
                   <input
                     type="text"
                     name="fullName"
@@ -205,7 +211,11 @@ export default function PopupForm({
 
                   {/* Service dropdown or hidden input */}
                   {service ? (
-                    <input type="hidden" name="serviceRequired" value={service} />
+                    <input
+                      type="hidden"
+                      name="serviceRequired"
+                      value={service}
+                    />
                   ) : (
                     <select
                       name="serviceRequired"
