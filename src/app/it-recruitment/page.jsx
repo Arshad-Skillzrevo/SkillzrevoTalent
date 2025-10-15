@@ -26,6 +26,19 @@ import {
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
 import PopupForm from "../components/PopupForm";
+import { FaStar } from "react-icons/fa6";
+// import { SiGooglegemini } from "react-icons/si";
+import { useState, useEffect } from "react";
+// import { motion } from 'framer-motion';
+import { SiGooglegemini } from "react-icons/si";
+import {
+  Award,
+  TrendingUp,
+  Clock,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
+
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -128,11 +141,22 @@ const faqs = [
   },
 ];
 
-
 const ITRecruitmentPage = () => {
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.9]);
   const heroScale = useTransform(scrollY, [0, 300], [1, 0.95]);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 15,
+        y: (e.clientY / window.innerHeight) * 15,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const solutions = [
     {
@@ -259,82 +283,326 @@ const ITRecruitmentPage = () => {
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
       {/* Hero Section */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-16 md:py-48 flex items-center justify-center bg-[#1d8fff] text-white"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+      <div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+
+        {/* Animated Accent Orbs */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x,
+            y: mousePosition.y,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{
+            x: -mousePosition.x * 0.5,
+            y: -mousePosition.y * 0.5,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center  mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* Left Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4"
           >
-            IT Recruitment Services to Build High-Performing Tech Teams
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
+            {/* Trust Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#1d8fff]/10 to-[#1d8fff]/5 border border-[#1d8fff]/20"
+            >
+              <Award className="w-4 h-4 text-[#1d8fff]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Trusted by 500+ Companies
+              </span>
+            </motion.div>
+
+            {/* Main Heading */}
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-4xl lg:text-5xl xl:text-7xl font-bold "
+              >
+                <span className="text-slate-900">IT Recruitment</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#1d8fff] to-[#0066cc] bg-clip-text text-transparent">
+                  Redefined
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-xl lg:text-xl xl:text-2xl text-slate-600 max-w-xl"
+              >
+                Connect with top-tier technology talent and build
+                high-performing teams that drive innovation.
+              </motion.p>
+            </div>
+
+            {/* Key Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-2"
+            >
+              {[
+                {
+                  icon: TrendingUp,
+                  label: "98% Success Rate",
+                  color: "#1d8fff",
+                },
+                { icon: Clock, label: "48hr Turnaround", color: "#1d8fff" },
+                {
+                  icon: CheckCircle2,
+                  label: "Vetted Talent",
+                  color: "#ff6900",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i === 2
+                        ? "from-[#ff6900]/10 to-[#ff6900]/5"
+                        : "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Schedule a Consultation <ArrowRight className="w-5 h-5" />
+                  </span>
+                }
+                pageUrl="/it-recruitment"
+                className="group px-5 py-3 bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="IT Recruitment"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/it-recruitment"
+                className="px-5 py-3 bg-gradient-to-l from-[#ff6900] to-orange-400 text-white rounded-xl font-semibold border-2 border-orange-300 hover:border-[#ff6900] hover:text-[#fff] transition-all hover:shadow-[#ff6900]/40 shadow-lg transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="IT Recruitment"
+              />
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex items-center gap-6 pt-6 border-t border-slate-200"
+            >
+              {/* <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 border-2 border-white"
+                />
+              ))}
+            </div> */}
+            <div className="bg-blue-100 rounded-md p-2"><Award className="w-8 h-8 text-[#1d8fff]" /></div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">
+                  Trusted by Industry Leaders
+                </p>
+                <p className="text-xs text-slate-500">
+                  Join 500+ satisfied clients
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            Hire top IT talent faster, smarter, and cost-effectively.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/it-recruitment"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="IT Recruitment"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/it-recruitment"
-              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="IT Recruitment"
-            />
-          </div>
+            {/* Main Image Container */}
+            <div className="relative">
+              {/* Decorative Background Elements */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+
+              <motion.div
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                {/* Image Frame */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="/images/it-recruitment.jpg"
+                      alt="IT Recruitment Services"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Stat Cards */}
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1d8fff] to-[#0066cc] flex items-center justify-center">
+                      <TrendingUp className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">500+</p>
+                      <p className="text-xs text-slate-500">Placements</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff6900] to-[#e55a00] flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">48hrs</p>
+                      <p className="text-xs text-slate-500">Avg. Time</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Accent Line */}
+              <div className="absolute top-1/2 -right-12 w-24 h-1 bg-gradient-to-r from-[#1d8fff] to-transparent rounded-full" />
+            </div>
+          </motion.div>
         </div>
-      </motion.section>
+
+        {/* Bottom Wave Decoration */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
+      </div>
 
       {/* Introduction */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Your Trusted IT Recruitment Partner
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            In the fast-evolving technology landscape, hiring the right IT
-            talent is critical to maintaining a competitive edge. SkillzRevo
-            Talent specializes in end-to-end IT recruitment solutions to help
-            you attract, hire, and retain exceptional technology professionals.
-          </p>
+      <motion.section
+        style={{ opacity: heroOpacity }}
+        className="relative h-auto flex items-center  text-white overflow-hidden py-24"
+      >
+        {/* Background Image/Overlay (Kept for depth) */}
+        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600')] bg-cover bg-center absolute  z-0">
         </div>
-      </AnimatedSection>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
 
-      {/* What is IT Recruitment */}
-      <AnimatedSection className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              What is IT Recruitment?
+        <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto  relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-White">
+              Your Trusted IT Recruitment Partner
             </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              IT Recruitment is the process of identifying, sourcing, assessing,
-              and hiring top technology professionals to meet organizational
-              requirements.
+            <p className="text-lg text-gray-200 leading-relaxed max-w-4xl mx-auto">
+              In the fast-evolving technology landscape, hiring the right IT
+              talent is critical to maintaining a competitive edge. SkillzRevo
+              Talent specializes in end-to-end IT recruitment solutions to help
+              you attract, hire, and retain exceptional technology
+              professionals.
             </p>
           </div>
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600"
-              alt="IT Recruitment"
-              className="rounded-lg shadow-2xl"
-            />
+        </AnimatedSection>
+      </motion.section>
+
+      {/* What is IT Recruitment */}
+      <div className="grid md:grid-cols-2 items-center justify-center h-full">
+        <div className="bg-blue-50 p-16 flex items-center justify-center h-full">
+          <div className="text-center md:text-left ">
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="px-5 py-2 rounded-full border border-white/20 bg-gradient-to-br from-[#1d8fff] via-blue-500 to-[#1d8fff] text-white font-bold text-sm tracking-wide shadow-sm shadow-blue-500/30 w-fit mb-4 flex items-center justify-between gap-1"
+            >
+              <SiGooglegemini /> One of the Best in IT Recruitment
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl xl:text-5xl text-[#1d8fff] font-bold mb-4 ">
+                What is IT Recruitment?
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-500 mb-10 max-w-xl md:max-w-none mx-auto md:mx-0">
+                IT Recruitment is the process of identifying, sourcing,
+                assessing, and hiring top technology professionals to meet
+                organizational requirements.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </AnimatedSection>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full"
+        >
+          <img
+            src="/images/it-recruitment.jpg"
+            alt=""
+            className="object-cover w-full h-full"
+          />
+        </motion.div>
+      </div>
+
+
 
       {/* Solutions */}
       <AnimatedSection className="py-20 px-4 md:px-10 max-w-8xl mx-auto bg-white">
@@ -422,8 +690,6 @@ const ITRecruitmentPage = () => {
         </div>
       </AnimatedSection>
 
-
-
       {/* Roles */}
       <AnimatedSection className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -433,7 +699,9 @@ const ITRecruitmentPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {roles.map((role, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl bg-blue-200 p-4 rounded-full w-fit text-[#1d8fff] mb-4">{role.icon}</div>
+                <div className="text-4xl bg-blue-200 p-4 rounded-full w-fit text-[#1d8fff] mb-4">
+                  {role.icon}
+                </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">
                   {role.category}
                 </h3>
@@ -517,7 +785,7 @@ const ITRecruitmentPage = () => {
               className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
               service="IT Recruitment"
             />
-            
+
             <PopupForm
               ctaTitle="Download Brochure"
               pageUrl="/it-recruitment"
