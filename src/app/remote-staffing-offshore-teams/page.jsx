@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   FaCode,
   FaCloud,
@@ -34,6 +35,13 @@ import {
   FaUsersCog, // For Teams/HR
   FaLaptopCode, // For IT/Remote Work
 } from "react-icons/fa";
+import {
+  ArrowRight,
+  TrendingUp,
+  Clock,
+  Award,
+  CheckCircle2,
+} from "lucide-react";
 import FAQAccordion from "../components/FAQAccordion";
 import PopupForm from "../components/PopupForm";
 
@@ -275,105 +283,246 @@ const RemoteStaffingPage = () => {
     },
   ];
 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX * 0.05,
+        y: e.clientY * 0.05,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
       {/* Header Section (Hero) (Updated Content) */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-16 md:py-48 flex items-center justify-center bg-[#ff6900] text-white"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            Remote Staffing & Offshore Teams That Empower Global Growth
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
-          >
-            Access top global talent, scale operations, and reduce costs —
-            without geographical limits.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-           
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/remote-staffing-offshore-teams"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="Remote Staffing"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/remote-staffing-offshore-teams"
-              className="px-8 py-4 bg-[#1d8fff] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="Remote Staffing"
-            />
-          </div>
-        </div>
-      </motion.section>
 
-      {/* Section 1 — Introduction (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-orange-50/40" />
+
+        {/* Animated Accent Orbs */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x,
+            y: mousePosition.y,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{
+            x: -mousePosition.x * 0.5,
+            y: -mousePosition.y * 0.5,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* Left Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4"
+          >
+            {/* Trust Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#ff6900]/10 to-[#ff6900]/5 border border-[#ff6900]/20"
+            >
+              <Award className="w-4 h-4 text-[#ff6900]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Empowering Global Workforce
+              </span>
+            </motion.div>
+
+            {/* Heading + Description */}
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-4xl lg:text-5xl xl:text-7xl font-bold"
+              >
+                <span className="text-slate-900">Remote Staffing</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#ff6900] to-[#1d8fff] bg-clip-text text-transparent">
+                  & Offshore Teams
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-xl lg:text-xl xl:text-2xl text-slate-600 max-w-xl"
+              >
+                Remote Staffing & Offshore Teams That Empower Global Growth
+              </motion.p>
+            </div>
+
+            {/* Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-2"
+            >
+              {[
+                {
+                  icon: TrendingUp,
+                  label: "Global Expansion",
+                  color: "#1d8fff",
+                },
+                { icon: Clock, label: "24/7 Productivity", color: "#ff6900" },
+                {
+                  icon: CheckCircle2,
+                  label: "Pre-Vetted Experts",
+                  color: "#1d8fff",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i % 2 === 0
+                        ? "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                        : "from-[#ff6900]/10 to-[#ff6900]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <PopupForm
+                ctaTitle="Get Started"
+                pageUrl="/remote-staffing-offshore-teams"
+                className="group px-5 py-3 bg-gradient-to-r from-[#ff6900] to-[#e55a00] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-[1.02] duration-200"
+                service="Remote Staffing"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/remote-staffing-offshore-teams"
+                className="px-5 py-3 bg-gradient-to-l from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold border-2 border-blue-300 hover:border-[#1d8fff] hover:shadow-[#1d8fff]/40 shadow-lg transform hover:scale-[1.02] duration-200"
+                service="Remote Staffing"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative">
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80"
+                      alt="Remote Staffing Team"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Section 1 — Introduction */}
+      <AnimatedSection className="py-20 px-4 mx-auto bg-white relative z-10">
+        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600')] bg-cover bg-center top-0 left-0 absolute z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
+        <div className="text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Build a Borderless, High-Performing Workforce
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg text-gray-100 leading-relaxed max-w-4xl mx-auto">
             In today’s digital-first, borderless workplace, businesses need
-            access to the **best talent without geographical limitations**.
-            SkillzRevo Talent enables you to build high-performing remote teams
-            and offshore staffing solutions that reduce costs, improve
-            scalability, and provide potential 24/7 productivity.
+            access to the{" "}
+            <span className="font-semibold text-[#1d8fff]">
+              best talent without geographical limitations
+            </span>
+            . SkillzRevo Talent enables you to build high-performing remote
+            teams and offshore staffing solutions that reduce costs, improve
+            scalability, and drive 24/7 productivity.
           </p>
-          <p className="text-xl font-semibold text-[#1d8fff] mt-4 max-w-4xl mx-auto flex items-center justify-center gap-2">
-            We empower you to hire top talent across India and overseas, while
-            handling **payroll, compliance, HR, and onboarding** — allowing you
-            to focus entirely on your core business growth.
+          <p className="text-xl font-semibold text-[#ff6900] mt-4 max-w-4xl mx-auto">
+            We manage payroll, compliance, onboarding, and HR — so you can focus
+            entirely on growth.
           </p>
         </div>
       </AnimatedSection>
 
-      {/* Section 2 — What is Remote Staffing & Offshore Teams? (Updated Content) */}
+      {/* Section 2 — What is Remote Staffing & Offshore Teams */}
       <AnimatedSection className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Understanding Remote Staffing and Offshore Solutions
+              Understanding Remote Staffing & Offshore Solutions
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              **Remote Staffing** allows companies to hire skilled professionals
-              who work remotely while being dedicated to your projects. They
-              integrate directly into your team, regardless of their physical
-              location.
+              <strong>Remote Staffing</strong> allows companies to hire skilled
+              professionals who work remotely yet remain fully dedicated to your
+              projects, integrating seamlessly with your existing team.
             </p>
             <p className="text-lg text-gray-700 mb-4 border-l-4 border-[#ff6900] pl-4">
-              **Offshore Teams** take this further by establishing a dedicated
-              workforce in another country (e.g., India), helping reduce
-              operational and infrastructure costs while tapping into massive,
-              high-skill talent pools.
+              <strong>Offshore Teams</strong> go a step further by building
+              dedicated units in countries like India — lowering costs while
+              accessing vast, highly skilled talent pools.
             </p>
             <p className="text-md font-medium text-gray-800">
-              With SkillzRevo Talent, you get pre-vetted, highly skilled
-              professionals working exclusively for you, either on our payroll
-              (Offshore) or yours (Remote).
+              SkillzRevo Talent provides pre-vetted professionals who work
+              exclusively for your business — whether on your payroll or ours.
             </p>
           </div>
           <div className="flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Image representing remote collaboration
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80"
               alt="Remote Collaboration"
-              className="rounded-lg shadow-2xl"
+              className="rounded-2xl shadow-2xl"
             />
           </div>
         </div>
       </AnimatedSection>
+     
 
       {/* Section 4 — Why Choose SkillzRevo Talent for Remote Staffing & Offshore Teams? (Updated Content) */}
       <AnimatedSection className="py-20 px-4 bg-[#1d8fff] text-white">

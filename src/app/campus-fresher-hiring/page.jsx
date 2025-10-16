@@ -1,5 +1,16 @@
 "use client";
+import {
+  Award,
+  ArrowRight,
+  TrendingUp,
+  Clock,
+  CheckCircle2,
+  Users, // New icon added for stats
+} from "lucide-react";
+import { SiGooglegemini } from "react-icons/si";
 
+// Mock implementation for external components/hooks (Replace with your actual imports)
+const useMousePosition = () => ({ x: 0, y: 0 });
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FaCode,
@@ -248,87 +259,328 @@ const CampusHiringPage = () => {
     "Upskilling Integration: Optional training programs to bridge academic and industry skill gaps.",
     "Cost-Effective Hiring: Achieve a lower cost-per-hire compared to managing in-house recruitment events.",
   ];
+  const campusKeyBenefits = [
+    {
+      icon: Users,
+      label: "10K+ Candidates Assessed",
+      color: "#1d8fff",
+    },
+    { icon: TrendingUp, label: "80% Reduction in Effort", color: "#1d8fff" },
+    {
+      icon: CheckCircle2,
+      label: "Ready-to-Deploy Talent",
+      color: "#ff6900",
+    },
+  ];
+  const mousePosition = useMousePosition();
 
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
       {/* Header Section (Hero) (Updated Content) */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-16 md:py-48 flex items-center justify-center bg-[#1d8fff] text-white"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+      <div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+
+        {/* Animated Accent Orbs (Code 1 Feature) */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x,
+            y: mousePosition.y,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{
+            x: -mousePosition.x * 0.5,
+            y: -mousePosition.y * 0.5,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* Left Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4"
           >
-            Campus & Freshers Hiring Solutions to Build Your Next-Gen Workforce
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
+            {/* Trust Badge (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#1d8fff]/10 to-[#1d8fff]/5 border border-[#1d8fff]/20"
+            >
+              <Award className="w-4 h-4 text-[#1d8fff]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Partnered with 200+ Institutions
+              </span>
+            </motion.div>
+
+            {/* Main Heading (New Content) */}
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-4xl lg:text-5xl xl:text-7xl font-bold "
+              >
+                <span className="text-slate-900">Campus & Freshers</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#1d8fff] to-[#0066cc] bg-clip-text text-transparent">
+                  Hiring Solutions
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-xl lg:text-xl xl:text-2xl text-slate-600 max-w-xl"
+              >
+                Access top talent from leading colleges and universities across India, ready to drive innovation.
+              </motion.p>
+            </div>
+
+            {/* Key Benefits (Code 1 Design + Custom Campus Stats) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-2"
+            >
+              {campusKeyBenefits.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i === 2
+                        ? "from-[#ff6900]/10 to-[#ff6900]/5"
+                        : "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons (Code 1 Design + New Page URL/Service) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Get Started <ArrowRight className="w-5 h-5" />
+                  </span>
+                }
+                pageUrl="/campus-fresher-hiring"
+                className="group px-5 py-3 bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Campus & Freshers Hiring"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/campus-fresher-hiring"
+                className="px-5 py-3 bg-gradient-to-l from-[#ff6900] to-orange-400 text-white rounded-xl font-semibold border-2 border-orange-300 hover:border-[#ff6900] hover:text-[#fff] transition-all hover:shadow-[#ff6900]/40 shadow-lg transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Campus & Freshers Hiring"
+              />
+            </motion.div>
+
+            {/* Trust Indicators (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex items-center gap-6 pt-6 border-t border-slate-200"
+            >
+              <div className="bg-blue-100 rounded-md p-2">
+                <Award className="w-8 h-8 text-[#1d8fff]" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">
+                  Built for Next-Gen Talent
+                </p>
+                <p className="text-xs text-slate-500">
+                  Ready-to-work graduates, zero training overhead
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image Section (Code 1 Design) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            Access top talent from leading colleges and universities across India, ready to drive innovation.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/campus-fresher-hiring"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="Campus & Freshers Hiring"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/campus-fresher-hiring"
-              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="Campus & Freshers Hiring"
-            />
-          </div>
+            {/* Main Image Container */}
+            <div className="relative">
+              {/* Decorative Background Elements */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+
+              <motion.div
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                {/* Image Frame (Updated Image) */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="/images/campus-hiring.jpg" // Updated image: students in a campus setting
+                      alt="Campus Freshers Hiring"
+                      className="w-full h-full object-cover aspect-video"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Stat Cards (Code 1 Design + Custom Campus Stats) */}
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1d8fff] to-[#0066cc] flex items-center justify-center">
+                      <Users className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">10K+</p>
+                      <p className="text-xs text-slate-500">Candidates Assessed</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff6900] to-[#e55a00] flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">95%</p>
+                      <p className="text-xs text-slate-500">Successful Placements</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Accent Line */}
+              <div className="absolute top-1/2 -right-12 w-24 h-1 bg-gradient-to-r from-[#1d8fff] to-transparent rounded-full" />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bottom Wave Decoration */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
+      </div>
+
+      {/* ========== SECTION 2: INTRODUCTION (Code 1 Design + New Content) ========== */}
+      <motion.section
+        style={{ opacity: heroOpacity }}
+        className="relative h-auto flex items-center text-white overflow-hidden py-24"
+      >
+        {/* Background Image/Overlay (Code 1 Feature) */}
+        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600')] bg-cover bg-center absolute z-0"></div> {/* Updated background image for relevance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
+
+        <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-White">
+              {/* New Content */}
+              Pipelining Future Talent, Today
+            </h2>
+            <p className="text-lg text-gray-200 leading-relaxed max-w-4xl mx-auto">
+              {/* New Content */}
+              Finding skilled, job-ready freshers who can seamlessly integrate into your organization is crucial for building a <span className="font-bold uppercase text-[#ff6900]">future-ready, agile workforce.</span>
+            </p>
+            <p className="text-xl text-gray-200 mt-4 max-w-4xl mx-auto">
+              {/* New Content */}
+              SkillzRevo Talent specializes in Campus Recruitment and Freshers Hiring Solutions, leveraging a vast network of institutions, advanced hiring tools, and tailored assessment methodologies to ensure you get industry-ready candidates.
+            </p>
+          </div>
+        </AnimatedSection>
       </motion.section>
 
-      {/* Section 1 — Introduction (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Pipelining Future Talent, Today
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Finding skilled, job-ready freshers who can seamlessly integrate into your organization is crucial for building a **future-ready, agile workforce**.
-          </p>
-          <p className="text-xl font-semibold text-[#ff6900] mt-4 max-w-4xl mx-auto flex items-center justify-center gap-2">
-            SkillzRevo Talent specializes in Campus Recruitment and Freshers Hiring Solutions, leveraging a vast network of institutions, advanced hiring tools, and tailored assessment methodologies to ensure you get industry-ready candidates.
-          </p>
-        </div>
-      </AnimatedSection>
-
-      {/* Section 2 — What is Campus & Freshers Hiring? (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              The Power of Strategic Campus Recruitment
-            </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              **Campus & Freshers Hiring** is the proactive, strategic process of recruiting students and recent graduates directly from colleges, universities, and training institutes to fill entry-level roles efficiently.
-            </p>
-            <p className="text-lg text-gray-700 mb-4 border-l-4 border-[#1d8fff] pl-4">
+      {/* ========== SECTION 3: WHAT IS CAMPUS & FRESHERS HIRING? (Code 1 Design + New Content) ========== */}
+      <div className="grid md:grid-cols-2 items-center justify-center h-full">
+        <div className="bg-blue-50 p-16 flex items-center justify-center h-full order-1 md:order-1">
+          <div className="text-center md:text-left ">
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="px-5 py-2 rounded-full border border-white/20 bg-gradient-to-br from-[#1d8fff] via-blue-500 to-[#1d8fff] text-white font-bold text-sm tracking-wide shadow-sm shadow-blue-500/30 w-fit mb-4 flex items-center justify-between gap-1"
+            >
+              <SiGooglegemini /> Strategic Campus Partnership
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl xl:text-5xl text-[#1d8fff] font-bold mb-4 ">
+                {/* New Content */}
+                The Power of Strategic Campus Recruitment
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-500 mb-4 max-w-xl md:max-w-none mx-auto md:mx-0">
+                {/* New Content */}
+                <span className="font-semibold text-gray-700">Campus & Freshers Hiring</span> is the proactive, strategic process of recruiting students and recent graduates directly from colleges, universities, and training institutes to fill entry-level roles efficiently.
+              </p>
+              <p className="text-lg lg:text-xl text-gray-500 mb-10 max-w-xl md:max-w-none mx-auto md:mx-0 border-l-4 border-[#ff6900] pl-4">
+                {/* New Content */}
                 We act as your strategic hiring partner, managing the entire campus recruitment lifecycle — from planning and assessments to offer rollouts and onboarding — minimizing administrative effort and maximizing results.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600" // Image representing a recruiting booth or presentation
-              alt="Campus Recruitment Event"
-              className="rounded-lg shadow-2xl"
-            />
+              </p>
+            </motion.div>
           </div>
         </div>
-      </AnimatedSection>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full order-2 md:order-2"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171" // Updated image: students in a classroom/lecture setting
+            alt="Campus Recruitment Event"
+            className="object-cover w-full h-full"
+          />
+        </motion.div>
+      </div>
 
       {/* Section 3 — Our Campus & Freshers Hiring Solutions (Updated Content/Structure reused from 'Solutions') */}
       <AnimatedSection className="py-20 px-4 md:px-10 max-w-8xl mx-auto bg-white">

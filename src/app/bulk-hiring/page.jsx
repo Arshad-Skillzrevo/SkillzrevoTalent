@@ -36,6 +36,19 @@ import {
 import FAQAccordion from "../components/FAQAccordion";
 import React from "react";
 import PopupForm from "../components/PopupForm";
+import {
+  Award,
+  ArrowRight,
+  TrendingUp,
+  Clock,
+  CheckCircle2,
+  Users,
+  Maximize, // New icon for Bulk/Scale theme
+} from "lucide-react";
+import { SiGooglegemini } from "react-icons/si";
+
+// Mock implementation for external components/hooks (Replace with your actual imports)
+const useMousePosition = () => ({ x: 0, y: 0 });
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -257,90 +270,331 @@ const benefits = [
 ];
 
 const BulkHiringPage = () => {
+  const mousePosition = useMousePosition();
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.9]);
   const heroScale = useTransform(scrollY, [0, 300], [1, 0.95]);
+  const bulkKeyBenefits = [
+    {
+      icon: Maximize,
+      label: "1000+ Hires/Quarter",
+      color: "#1d8fff",
+    },
+    { icon: Clock, label: "60% Faster Deployment", color: "#1d8fff" },
+    {
+      icon: Users,
+      label: "Pan-India Sourcing",
+      color: "#ff6900",
+    },
+  ];
 
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
       {/* Hero Section (Header) */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-16 md:py-48 flex items-center justify-center bg-[#1d8fff] text-white"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+      <div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+
+        {/* Animated Accent Orbs (Code 1 Feature) */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x,
+            y: mousePosition.y,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{
+            x: -mousePosition.x * 0.5,
+            y: -mousePosition.y * 0.5,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center  mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* Left Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4"
           >
-            Bulk Hiring Solutions – Hire at Scale with Speed and Precision
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
+            {/* Trust Badge (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#1d8fff]/10 to-[#1d8fff]/5 border border-[#1d8fff]/20"
+            >
+              <Award className="w-4 h-4 text-[#1d8fff]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Managed High-Volume Recruitment
+              </span>
+            </motion.div>
+
+            {/* Main Heading (New Content) */}
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-4xl lg:text-5xl xl:text-7xl font-bold "
+              >
+                <span className="text-slate-900">Bulk Hiring</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#1d8fff] to-[#0066cc] bg-clip-text text-transparent">
+                  Hire at Scale with Speed and Precision
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-xl lg:text-xl xl:text-2xl text-slate-600 max-w-xl"
+              >
+                End-to-end high-volume recruitment services to build your workforce faster, smarter, and more efficiently.
+              </motion.p>
+            </div>
+
+            {/* Key Benefits (Code 1 Design + Custom Bulk Stats) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-2"
+            >
+              {bulkKeyBenefits.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i === 2
+                        ? "from-[#ff6900]/10 to-[#ff6900]/5"
+                        : "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons (Code 1 Design + New Page URL/Service) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Get Started <ArrowRight className="w-5 h-5" />
+                  </span>
+                }
+                pageUrl="/bulk-hiring"
+                className="group px-5 py-3 bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Bulk Hiring"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/bulk-hiring"
+                className="px-5 py-3 bg-gradient-to-l from-[#ff6900] to-orange-400 text-white rounded-xl font-semibold border-2 border-orange-300 hover:border-[#ff6900] hover:text-[#fff] transition-all hover:shadow-[#ff6900]/40 shadow-lg transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Bulk Hiring"
+              />
+            </motion.div>
+
+            {/* Trust Indicators (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex items-center gap-6 pt-6 border-t border-slate-200"
+            >
+              <div className="bg-blue-100 rounded-md p-2">
+                <Maximize className="w-8 h-8 text-[#1d8fff]" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">
+                  Technology-Driven Screening
+                </p>
+                <p className="text-xs text-slate-500">
+                  Assess and onboard hundreds efficiently
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image Section (Code 1 Design) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            End-to-end high-volume recruitment services to build your workforce faster, smarter, and more efficiently.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/bulk-hiring"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="Bulk Hiring"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/bulk-hiring"
-              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="Bulk Hiring"
-            />
-          </div>
+            {/* Main Image Container */}
+            <div className="relative">
+              {/* Decorative Background Elements */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+
+              <motion.div
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                {/* Image Frame (Updated Image) */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1758520144555-af04bf9ad3e2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332" // Updated image: mass assessment/office setup
+                      alt="Bulk Hiring Solution"
+                      className="w-full h-full object-cover aspect-video"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Stat Cards (Code 1 Design + Custom Bulk Stats) */}
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1d8fff] to-[#0066cc] flex items-center justify-center">
+                      <Maximize className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">1000+</p>
+                      <p className="text-xs text-slate-500">Hires/Quarter</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff6900] to-[#e55a00] flex items-center justify-center">
+                      <TrendingUp className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">60%</p>
+                      <p className="text-xs text-slate-500">Faster Time-to-Join</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Accent Line */}
+              <div className="absolute top-1/2 -right-12 w-24 h-1 bg-gradient-to-r from-[#1d8fff] to-transparent rounded-full" />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bottom Wave Decoration */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
+      </div>
+
+      {/* ========== SECTION 2: INTRODUCTION (Code 1 Design + New Content) ========== */}
+      <motion.section
+        style={{ opacity: heroOpacity }}
+        className="relative h-auto flex items-center text-white overflow-hidden py-24"
+      >
+        {/* Background Image/Overlay (Code 1 Feature) */}
+        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center absolute z-0"></div> {/* Updated background image for relevance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
+
+        <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-White">
+              {/* New Content */}
+              Scaling Your Workforce Without Compromise
+            </h2>
+            <p className="text-lg text-gray-200 leading-relaxed max-w-4xl mx-auto">
+              {/* New Content */}
+              In a fast-paced business world, scaling teams quickly without compromising on quality is a major challenge. Traditional hiring often falls short in speed, consistency, and talent quality.
+            </p>
+            <p className="text-xl text-gray-200 mt-4 max-w-4xl mx-auto">
+              {/* New Content */}
+              SkillzRevo Talent’s **Bulk Hiring Solutions** help enterprises, startups, and global organizations recruit large numbers of qualified candidates efficiently and cost-effectively, combining **technology-driven screening** and **pan-India outreach**.
+            </p>
+          </div>
+        </AnimatedSection>
       </motion.section>
 
-      {/* Section 1 – Introduction */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Scaling Your Workforce Without Compromise
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            In a fast-paced business world, scaling teams quickly without compromising on quality is a major challenge. Traditional hiring often falls short in speed, consistency, and talent quality.
-          </p>
-          <p className="text-xl font-semibold text-[#ff6900] mt-4 max-w-4xl mx-auto  gap-2">
-            SkillzRevo Talent’s <span className="font-bold">Bulk Hiring Solutions</span> help enterprises, startups, and global organizations recruit large numbers of qualified candidates efficiently and cost-effectively, combining <span className="font-bold">technology-driven screening</span> and <span className="font-bold">pan-India outreach</span>.
-          </p>
-        </div>
-      </AnimatedSection>
-
-      {/* Section 2 – What is Bulk Hiring? */}
-      <AnimatedSection className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              The Power of Managed High-Volume Recruitment
-            </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              <span className="font-bold">Bulk Hiring</span> refers to the process of recruiting a large number of candidates within a defined timeframe to meet business expansion, seasonal peaks, or project-based demands.
-            </p>
-            <p className="text-lg text-gray-700 mb-4 border-l-4 border-[#1d8fff] pl-4 font-semibold">
-              We manage the entire hiring cycle—from requirement planning to onboarding—deploying <span className="font-bold">data-driven tools, AI assessments, and a trained recruitment team</span> to deliver ready-to-join employees at scale.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1542744095-23c2d3345330?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Image for a mass assessment/office setup
-              alt="Bulk Hiring Infographic"
-              className="rounded-lg shadow-2xl"
-            />
+      {/* ========== SECTION 3: WHAT IS BULK HIRING? (Code 1 Design + New Content) ========== */}
+      <div className="grid md:grid-cols-2 items-center justify-center h-full">
+        <div className="bg-blue-50 p-16 flex items-center justify-center h-full order-1 md:order-1">
+          <div className="text-center md:text-left ">
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="px-5 py-2 rounded-full border border-white/20 bg-gradient-to-br from-[#1d8fff] via-blue-500 to-[#1d8fff] text-white font-bold text-sm tracking-wide shadow-sm shadow-blue-500/30 w-fit mb-4 flex items-center justify-between gap-1"
+            >
+              <SiGooglegemini /> High-Volume, High-Quality
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl xl:text-5xl text-[#1d8fff] font-bold mb-4 ">
+                {/* New Content */}
+                The Power of Managed High-Volume Recruitment
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-500 mb-4 max-w-xl md:max-w-none mx-auto md:mx-0">
+                {/* New Content */}
+                **Bulk Hiring** refers to the process of recruiting a large number of candidates within a defined timeframe to meet business expansion, seasonal peaks, or project-based demands.
+              </p>
+              <p className="text-lg lg:text-xl text-gray-500 mb-10 max-w-xl md:max-w-none mx-auto md:mx-0 border-l-4 border-[#ff6900] pl-4">
+                {/* New Content */}
+                We manage the entire hiring cycle—from requirement planning to onboarding—deploying **data-driven tools, AI assessments, and a trained recruitment team** to deliver ready-to-join employees at scale.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </AnimatedSection>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full order-2 md:order-2"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600" // Updated image: mass assessment/office setup
+            alt="Bulk Hiring Infographic"
+            className="object-cover w-full h-full"
+          />
+        </motion.div>
+      </div>
 
       {/* Section 3 – Key Highlights */}
       <AnimatedSection className="py-20 px-4 md:px-10 max-w-8xl mx-auto bg-white">

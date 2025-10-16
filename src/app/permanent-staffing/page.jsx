@@ -32,6 +32,14 @@ import {
 import FAQAccordion from "../components/FAQAccordion";
 import React from "react";
 import PopupForm from "../components/PopupForm";
+import {
+  Award,
+  TrendingUp,
+  CheckCircle2,
+  Clock,
+  ArrowRight,
+} from "lucide-react";
+import { SiGooglegemini } from "react-icons/si";
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -266,62 +274,151 @@ const PermanentStaffingPage = () => {
 
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
-      {/* Hero Section (Updated Content) */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-16 md:py-48 flex items-center justify-center bg-[#1d8fff] text-white"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600')] bg-cover bg-center opacity-10"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+      {/* HERO SECTION – Permanent Staffing */}
+      <div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+
+        {/* Accent Orbs */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{ y: [0, 30, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{ y: [0, -30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-6"
           >
-            Hire Permanent Talent that Drives Long-Term Success
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto"
+            {/* Trust Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#1d8fff]/10 to-[#1d8fff]/5 border border-[#1d8fff]/20">
+              <Award className="w-4 h-4 text-[#1d8fff]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Trusted by Top Enterprises
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-4xl lg:text-5xl xl:text-7xl font-bold text-slate-900">
+              Hire Permanent Talent that
+              <br />
+              <span className="bg-gradient-to-r from-[#1d8fff] to-[#0066cc] bg-clip-text text-transparent">
+                Drives Long-Term Success
+              </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-xl lg:text-2xl text-slate-600 max-w-xl">
+              SkillzRevo Talent connects you with exceptional full-time
+              professionals who align with your values, goals, and growth
+              vision.
+            </p>
+
+            {/* Benefits */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                {
+                  icon: TrendingUp,
+                  label: "High Retention Rate",
+                  color: "#1d8fff",
+                },
+                { icon: Clock, label: "Quick Turnaround", color: "#1d8fff" },
+                {
+                  icon: CheckCircle2,
+                  label: "Culture Fit Guarantee",
+                  color: "#ff6900",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i === 2
+                        ? "from-[#ff6900]/10 to-[#ff6900]/5"
+                        : "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Get Started <ArrowRight className="w-5 h-5" />
+                  </span>
+                }
+                pageUrl="/permanent-staffing"
+                className="group px-6 py-3 bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Permanent Staffing"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/permanent-staffing"
+                className="px-6 py-3 bg-gradient-to-l from-[#ff6900] to-orange-400 text-white rounded-xl font-semibold border-2 border-orange-300 hover:border-[#ff6900] hover:text-[#fff] transition-all hover:shadow-[#ff6900]/40 shadow-lg transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Permanent Staffing"
+              />
+            </div>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            SkillzRevo Talent helps organizations find, attract, and retain
-            full-time employees who fit your culture, values, and business
-            goals.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/permanent-staffing"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="Permanent Staffing"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/permanent-staffing"
-              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="Permanent Staffing"
-            />
-          </div>
+            <div className="relative">
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600"
+                  alt="Permanent Staffing"
+                  className="rounded-xl object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </motion.section>
+      </div>
 
       {/* Section 1 – Introduction (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <AnimatedSection className="relative py-20 px-4 mx-auto bg-[url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600)] bg-cover bg-center ">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
+
+        <div className="relative z-0 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Your Strategic Partner for Full-Time Hiring
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg text-gray-100 leading-relaxed max-w-4xl mx-auto">
             At SkillzRevo Talent, we understand that your business success
             depends on hiring the right people. Our{" "}
             <span className="font-semibold">Permanent Staffing Solutions</span>{" "}
             are tailored to ensure you get high-performing, culturally aligned
             professionals for crucial full-time roles.
           </p>
-          <p className="text-xl font-semibold text-[#ff6900] mt-4 max-w-4xl mx-auto  gap-2">
+          <p className="text-xl font-semibold text-white p-2 bg-[#ff6900] mt-4 max-w-4xl mx-auto  gap-2">
             With deep industry expertise, an extensive talent network, and
             AI-powered recruitment processes, we deliver{" "}
             <span className="font-semibold">
@@ -333,36 +430,56 @@ const PermanentStaffingPage = () => {
       </AnimatedSection>
 
       {/* Section 2 – What is Permanent Staffing? (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+      <div className="grid md:grid-cols-2 items-center justify-center h-full">
+        {/* LEFT TEXT BLOCK */}
+        <div className="bg-blue-50 p-12 flex items-center justify-center h-full">
+          <div className="text-center md:text-left">
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="px-5 py-2 rounded-full border border-white/20 bg-gradient-to-br from-[#1d8fff] via-blue-500 to-[#1d8fff] text-white font-bold text-sm tracking-wide shadow-sm w-fit mb-4 flex items-center justify-between gap-1"
+            >
+              <SiGooglegemini /> Permanent Staffing Explained
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl xl:text-5xl text-[#1d8fff] font-bold mb-4"
+            >
               What is Permanent Staffing?
-            </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              Permanent Staffing is the essential process of hiring{" "}
-              <span className="font-semibold">full-time employees</span> who
-              become a core part of your organization's team, culture, and
-              payroll. These individuals are key to achieving long-term
-              strategic goals and maintaining institutional knowledge.
+            </motion.h2>
+
+            <p className="text-lg lg:text-xl text-gray-600 mb-6 max-w-xl md:max-w-none mx-auto md:mx-0">
+              Permanent staffing involves hiring full-time employees who form
+              the backbone of your organization — driving stability, knowledge
+              retention, and growth.
             </p>
-            <p className="text-lg text-gray-700 mb-4">
-              As your strategic hiring partner, SkillzRevo Talent manages the
-              entire lifecycle — from sourcing and screening to negotiations and
-              onboarding — so you can focus on{" "}
-              <span className="font-semibold">growth</span> while we handle the
-              recruitment complexity.
+
+            <p className="text-lg lg:text-xl text-gray-600 max-w-xl md:max-w-none mx-auto md:mx-0">
+              SkillzRevo Talent manages every step — sourcing, screening, and
+              onboarding — ensuring you get the right talent, without the
+              hassle.
             </p>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Updated Image for professional hiring
-              alt="Permanent Staffing"
-              className="rounded-lg shadow-2xl"
-            />
           </div>
         </div>
-      </AnimatedSection>
+
+        {/* RIGHT IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1169&auto=format&fit=crop"
+            alt="Permanent Staffing"
+            className="object-cover w-full h-full"
+          />
+        </motion.div>
+      </div>
 
       {/* Section 7 – Engagement Models (Updated Content/Structure reused from 'Solutions') */}
       <AnimatedSection className="py-20 px-4 md:px-10 max-w-8xl mx-auto bg-white">

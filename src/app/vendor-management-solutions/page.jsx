@@ -42,6 +42,28 @@ import {
 } from "react-icons/fa";
 import FAQAccordion from "../components/FAQAccordion";
 import PopupForm from "../components/PopupForm";
+import {
+  Award,
+  ArrowRight,
+  TrendingUp,
+  Clock,
+  CheckCircle2,
+  Users,
+  Briefcase,
+  Layers, // Icon for Vendor Management/Structure
+  PackageCheck, // Icon for Compliance
+  FileSearch, // Icon for Transparency
+  ArrowDown,
+  UserPlus,
+  Gavel,
+  CheckCircle,
+  ClipboardList,
+  BarChart3,
+} from "lucide-react";
+import { SiGooglegemini } from "react-icons/si";
+
+// Mock implementation for external components/hooks (Replace with your actual imports)
+const useMousePosition = () => ({ x: 0, y: 0 });
 
 const AnimatedSection = ({ children, className = "" }) => {
   return (
@@ -259,105 +281,360 @@ const VendorManagementPage = () => {
     { title: "Enhanced Vendor Relationships", description: "Build long-term, performance-based partnerships.", icon: FaHandshake },
   ];
 
+  const mousePosition = useMousePosition();
+  const vmsKeyBenefits = [
+    {
+      icon: Layers,
+      label: "Centralized Management",
+      color: "#1d8fff",
+    },
+    { icon: PackageCheck, label: "100% Compliance", color: "#ff6900" },
+    {
+      icon: FileSearch,
+      label: "Operational Transparency",
+      color: "#1d8fff",
+    },
+  ]; 
+
   return (
     <div className="bg-white text-gray-800 overflow-hidden">
       {/* Hero Section (Updated Content) */}
-      <motion.section
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative h-full py-24 md:py-48 flex items-center justify-center bg-[#1d8fff] text-white"
-      >
-        {/* Background: Professional office boardroom or vendor coordination image with gradient overlay */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600')] bg-cover bg-center"></div>
-        {/* Overlay Gradient: SkillzRevo brand colors (#1d8fff, #fd511f) */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#1d8fff]/90 to-[#fd511f]/90"></div>
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-extrabold mb-6"
+<div className="relative bg-white overflow-hidden py-8 md:py-16">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+
+        {/* Animated Accent Orbs (Code 1 Feature) */}
+        <motion.div
+          className="absolute top-20 -right-32 w-96 h-96 bg-[#1d8fff]/5 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x,
+            y: mousePosition.y,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+        <motion.div
+          className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#ff6900]/5 rounded-full blur-3xl"
+          animate={{
+            x: -mousePosition.x * 0.5,
+            y: -mousePosition.y * 0.5,
+          }}
+          transition={{ type: "spring", stiffness: 30, damping: 20 }}
+        />
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center  mx-auto px-6 md:px-12 lg:px-16 py-16 lg:py-20">
+          {/* Left Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4"
           >
-            Vendor Management Solutions – Streamline Your Workforce Partnerships with SkillzRevo Talent
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto font-light"
+            {/* Trust Badge (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#1d8fff]/10 to-[#1d8fff]/5 border border-[#1d8fff]/20"
+            >
+              <Award className="w-4 h-4 text-[#1d8fff]" />
+              <span className="text-sm font-semibold text-slate-700">
+                Optimized External Workforce Ecosystem
+              </span>
+            </motion.div>
+
+            {/* Main Heading (New Content) */}
+            <div className="space-y-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-4xl lg:text-5xl xl:text-7xl font-bold "
+              >
+                <span className="text-slate-900">Vendor Management</span>
+                <br />
+                <span className="bg-gradient-to-r from-[#1d8fff] to-[#0066cc] bg-clip-text text-transparent">
+                  Streamline Workforce Partnerships
+                </span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="text-xl lg:text-xl xl:text-2xl text-slate-600 max-w-xl"
+              >
+                Optimize your multi-vendor ecosystem with centralized management, compliance, and performance tracking — all under one roof.
+              </motion.p>
+            </div>
+
+            {/* Key Benefits (Code 1 Design + Custom VMS Stats) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="flex flex-wrap gap-2"
+            >
+              {vmsKeyBenefits.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${
+                      i === 1
+                        ? "from-[#ff6900]/10 to-[#ff6900]/5"
+                        : "from-[#1d8fff]/10 to-[#1d8fff]/5"
+                    }`}
+                  >
+                    <item.icon
+                      className="w-5 h-5"
+                      style={{ color: item.color }}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons (Code 1 Design + New Page URL/Service) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+            >
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Get Started <ArrowRight className="w-5 h-5" />
+                  </span>
+                }
+                pageUrl="/vendor-management-solutions"
+                className="group px-5 py-3 bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Vendor Management"
+              />
+              <PopupForm
+                ctaTitle="Download Brochure"
+                pageUrl="/vendor-management-solutions"
+                className="px-5 py-3 bg-gradient-to-l from-[#ff6900] to-orange-400 text-white rounded-xl font-semibold border-2 border-orange-300 hover:border-[#ff6900] hover:text-[#fff] transition-all hover:shadow-[#ff6900]/40 shadow-lg transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                service="Vendor Management"
+              />
+            </motion.div>
+
+            {/* Trust Indicators (Code 1 Feature) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex items-center gap-6 pt-6 border-t border-slate-200"
+            >
+              <div className="bg-blue-100 rounded-md p-2">
+                <Layers className="w-8 h-8 text-[#1d8fff]" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">
+                  Unified Vendor Performance Analytics
+                </p>
+                <p className="text-xs text-slate-500">
+                  From contracts to invoices, manage everything centrally
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Image Section (Code 1 Design) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            Optimize your multi-vendor ecosystem with centralized management, compliance, and performance tracking — all under one roof.
-          </motion.p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <PopupForm
-              ctaTitle="Get Started"
-              pageUrl="/vendor-management-solutions"
-              className="px-8 py-4 bg-white !text-[#1d8fff] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
-              service="Vendor Management"
-            />
-            <PopupForm
-              ctaTitle="Download Brochure"
-              pageUrl="/vendor-management-solutions"
-              className="px-8 py-4 bg-[#ff6900] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
-              service="Vendor Management"
-            />
-          </div>
+            {/* Main Image Container */}
+            <div className="relative">
+              {/* Decorative Background Elements */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#1d8fff]/10 via-transparent to-[#ff6900]/10 rounded-3xl blur-2xl" />
+
+              <motion.div
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative"
+              >
+                {/* Image Frame (Updated Image) */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-3">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600" // Updated image: professional boardroom/vendor coordination
+                      alt="Vendor Management System"
+                      className="w-full h-full object-cover aspect-video"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Stat Cards (Code 1 Design + Custom VMS Stats) */}
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1d8fff] to-[#0066cc] flex items-center justify-center">
+                      <Layers className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">30%</p>
+                      <p className="text-xs text-slate-500">Cost Reduction</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-200 p-4 min-w-[160px]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff6900] to-[#e55a00] flex items-center justify-center">
+                      <PackageCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-slate-900">99%</p>
+                      <p className="text-xs text-slate-500">Invoice Accuracy</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Accent Line */}
+              <div className="absolute top-1/2 -right-12 w-24 h-1 bg-gradient-to-r from-[#1d8fff] to-transparent rounded-full" />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Bottom Wave Decoration */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
+      </div>
+
+      {/* ========== SECTION 2: INTRODUCTION (Code 1 Design + New Content) ========== */}
+      <motion.section
+        style={{ opacity: heroOpacity }}
+        className="relative h-auto flex items-center text-white overflow-hidden py-24"
+      >
+        {/* Background Image/Overlay (Code 1 Feature) */}
+        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600')] bg-cover bg-center absolute z-0"></div> {/* Using a team collaboration background image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-black/40 to-black/20 opacity-100"></div>
+
+        <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-White">
+              {/* New Content */}
+              Simplify Complexity, Achieve Transparency
+            </h2>
+            <p className="text-lg text-gray-200 leading-relaxed max-w-4xl mx-auto mb-4">
+              {/* New Content */}
+              In today’s dynamic business environment, relying on multiple staffing vendors and service providers can quickly become **complex and resource-intensive** due to compliance and performance gaps.
+            </p>
+            <p className="text-xl text-gray-200 mt-4 max-w-4xl mx-auto">
+              {/* New Content */}
+              At SkillzRevo Talent, our **Vendor Management Solutions (VMS)** provide an end-to-end service to streamline, standardize, and optimize your vendor operations for maximum efficiency and transparency.
+            </p>
+          </div>
+        </AnimatedSection>
       </motion.section>
 
-      {/* Section 1 – Introduction (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 max-w-6xl mx-auto bg-white">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            Simplify Complexity, Achieve Transparency
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-4">
-            In today’s dynamic business environment, organizations often rely on multiple staffing vendors and service providers. However, managing multiple vendors, ensuring compliance, and maintaining consistent performance across suppliers can quickly become **complex and resource-intensive.**
-          </p>
-          <p className="text-xl font-semibold text-[#1d8fff] mt-4 max-w-4xl mx-auto">
-            At SkillzRevo Talent, we simplify this challenge through our **Vendor Management Solutions (VMS)** — an end-to-end service that helps enterprises streamline, standardize, and optimize their vendor operations for maximum efficiency and transparency.
-          </p>
-          <p className="text-lg font-normal text-gray-700 mt-6 max-w-4xl mx-auto">
-            Our vendor management system acts as a strategic partner — ensuring **quality, compliance, and scalability** in all your external workforce engagements.
-          </p>
-        </div>
-      </AnimatedSection>
-
-      {/* Section 2 – What is Vendor Management? (Updated Content) */}
-      <AnimatedSection className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              What is Vendor Management?
-            </h2>
-            <p className="text-lg text-gray-700 mb-4">
-              **Vendor Management** is the process of systematically managing staffing and service vendors to ensure optimal delivery, cost control, and risk mitigation across your entire external workforce ecosystem.
-            </p>
-            <p className="text-lg text-gray-700 mb-6">
-              Through SkillzRevo Talent’s VMS, we provide a unified approach to handle vendor onboarding, contract management, performance evaluation, compliance checks, and workforce analytics — enabling organizations to focus on growth while we handle the operational complexity.
-            </p>
-            <ul className="space-y-3 text-lg text-gray-800">
-                <li className="flex items-center gap-3"><FaCheckCircle className="text-[#fd511f] flex-shrink-0" /> **A single point of contact** for multiple vendors.</li>
-                <li className="flex items-center gap-3"><FaCheckCircle className="text-[#fd511f] flex-shrink-0" /> **Transparent processes** with measurable performance.</li>
-                <li className="flex items-center gap-3"><FaCheckCircle className="text-[#fd511f] flex-shrink-0" /> **Compliance** with all statutory and organizational policies.</li>
-            </ul>
+      {/* ========== SECTION 3: WHAT IS VENDOR MANAGEMENT? (Code 1 Design + New Content) ========== */}
+      <div className="grid md:grid-cols-2 items-center justify-center h-full">
+        <div className="bg-blue-50 p-16 flex items-center justify-center h-full order-1 md:order-1">
+          <div className="text-center md:text-left ">
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="px-5 py-2 rounded-full border border-white/20 bg-gradient-to-br from-[#1d8fff] via-blue-500 to-[#1d8fff] text-white font-bold text-sm tracking-wide shadow-sm shadow-blue-500/30 w-fit mb-4 flex items-center justify-between gap-1"
+            >
+              <SiGooglegemini /> Control Your External Ecosystem
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-4xl xl:text-5xl text-[#1d8fff] font-bold mb-4 ">
+                {/* New Content */}
+                What is Vendor Management?
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-500 mb-4 max-w-xl md:max-w-none mx-auto md:mx-0">
+                {/* New Content */}
+                **Vendor Management** is the process of systematically managing staffing and service vendors to ensure **optimal delivery, cost control, and risk mitigation** across your entire external workforce ecosystem.
+              </p>
+              <ul className="space-y-3 text-lg text-gray-800">
+                <li className="flex items-center gap-3 text-gray-700">
+                  <FaCheckCircle className="text-[#ff6900] flex-shrink-0 w-6 h-6" />{" "}
+                  **A single point of contact** for multiple vendors.
+                </li>
+                <li className="flex items-center gap-3 text-gray-700">
+                  <FaCheckCircle className="text-[#ff6900] flex-shrink-0 w-6 h-6" />{" "}
+                  **Transparent processes** with measurable performance.
+                </li>
+                <li className="flex items-center gap-3 text-gray-700">
+                  <FaCheckCircle className="text-[#ff6900] flex-shrink-0 w-6 h-6" />{" "}
+                  **Compliance** with all statutory and organizational policies.
+                </li>
+              </ul>
+            </motion.div>
           </div>
-          <div className="flex justify-center">
-             {/* Flow graphic showing “Vendor Onboarding → Compliance → Monitoring → Optimization” */}
-             <div className="bg-white p-6 rounded-xl shadow-2xl border border-gray-200">
-                <h3 className="text-2xl font-semibold mb-4 text-center text-[#1d8fff]">VMS Flow: Control & Optimization</h3>
-                <div className="flex flex-col items-center space-y-4">
-                    <div className="flex items-center gap-3"><FaUserPlus className="text-2xl text-blue-600"/> <span className="font-medium">Vendor Onboarding & Vetting</span></div>
-                    <FaArrowDown className="text-gray-400"/>
-                    <div className="flex items-center gap-3"><FaGavel className="text-2xl text-red-600"/> <span className="font-medium">Compliance & Contract Management</span></div>
-                    <FaArrowDown className="text-gray-400"/>
-                    <div className="flex items-center gap-3"><FaTasks className="text-2xl text-yellow-600"/> <span className="font-medium">Performance Monitoring & Rating</span></div>
-                    <FaArrowDown className="text-gray-400"/>
-                    <div className="flex items-center gap-3"><FaChartLine className="text-2xl text-green-600"/> <span className="font-medium">Strategic Optimization & Analytics</span></div>
-                </div>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full h-full order-2 md:order-2 p-12 md:p-0 flex items-center justify-center"
+        >
+          {/* Flow graphic showing VMS steps (Using lucide-react icons) */}
+          <div className="bg-white p-6 rounded-xl shadow-2xl border border-gray-200">
+            <h3 className="text-2xl font-semibold mb-6 text-center text-[#1d8fff]">
+              VMS Flow: Control & Optimization
+            </h3>
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex items-center gap-3 bg-blue-50 p-3 rounded-lg w-full justify-center">
+                <FaUserPlus className="text-2xl text-[#1d8fff]" />{" "}
+                <span className="font-medium text-gray-800">Vendor Onboarding & Vetting</span>
+              </div>
+              <FaArrowDown className="text-gray-400" />
+              <div className="flex items-center gap-3 bg-red-50 p-3 rounded-lg w-full justify-center">
+                <FaGavel className="text-2xl text-[#ff6900]" />{" "}
+                <span className="font-medium text-gray-800">Compliance & Contract Management</span>
+              </div>
+              <FaArrowDown className="text-gray-400" />
+              <div className="flex items-center gap-3 bg-yellow-50 p-3 rounded-lg w-full justify-center">
+                <FaTasks className="text-2xl text-yellow-600" />{" "}
+                <span className="font-medium text-gray-800">Performance Monitoring & Rating</span>
+              </div>
+              <FaArrowDown className="text-gray-400" />
+              <div className="flex items-center gap-3 bg-green-50 p-3 rounded-lg w-full justify-center">
+                <FaChartLine className="text-2xl text-green-600" />{" "}
+                <span className="font-medium text-gray-800">Strategic Optimization & Analytics</span>
+              </div>
             </div>
           </div>
-        </div>
-      </AnimatedSection>
+        </motion.div>
+      </div>
 
        {/* Section 3 – Key Highlights (Updated Content) */}
       <AnimatedSection className="py-20 px-4 md:px-10 max-w-7xl mx-auto bg-white">
@@ -375,7 +652,7 @@ const VendorManagementPage = () => {
                 {highlight.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900 flex items-center gap-2">
-                <FaClipboardCheck className="text-[#fd511f]"/>{highlight.title}
+                {highlight.title}
               </h3>
               <p className="text-gray-700">{highlight.description}</p>
             </motion.div>
