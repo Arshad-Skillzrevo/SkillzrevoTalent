@@ -1,435 +1,636 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+
+import { useState } from "react";
+import Head from "next/head";
+import { motion } from "framer-motion";
 import {
-  FaRocket,
-  FaLightbulb,
-  FaHandshake,
-  FaShieldAlt,
-  FaBolt,
-  FaSearch,
-  FaUsers,
-  FaCheckCircle,
-  FaHeadset,
-} from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
+  Users,
+  ShieldCheck,
+  Brain,
+  Cloud,
+  LineChart,
+  Rocket,
+  CheckCircle2,
+  Globe2,
+  Briefcase,
+  GraduationCap,
+  Layers,
+  Handshake,
+} from "lucide-react";
+import { FaNetworkWired, FaRegHandshake, FaUserTie } from "react-icons/fa";
+import MainSegments from "./MainSegments";
+import PopupForm from "../components/PopupForm";
 
-export default function SkillzRevoLanding() {
-  const [isVisible, setIsVisible] = useState({});
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+// Color tokens (use Tailwind arbitrary colors for styling)
+const BRAND_BLUE = "#1d8fff"; // primary
+const BRAND_ORANGE = "#ff6900"; // accent
 
-  const values = [
-    {
-      icon: FaRocket,
-      title: "Excellence",
-      desc: "Delivering quality in every placement and partnership",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: FaLightbulb,
-      title: "Innovation",
-      desc: "Leveraging technology and insights to transform staffing",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: FaShieldAlt,
-      title: "Integrity",
-      desc: "Transparent, ethical practices in all our interactions",
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      icon: FaHandshake,
-      title: "Partnership",
-      desc: "Building long-term relationships beyond transactions",
-      color: "from-orange-500 to-red-500",
-    },
-    {
-      icon: FaBolt,
-      title: "Agility",
-      desc: "Adapting quickly to changing workforce needs",
-      color: "from-yellow-500 to-orange-500",
-    },
-  ];
+// Motion presets
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
-  const process = [
-    {
-      icon: FaSearch,
-      title: "Discover",
-      desc: "Understanding your unique requirements and culture",
-      step: "01",
-    },
-    {
-      icon: FaUsers,
-      title: "Source",
-      desc: "Leveraging our network and technology to find top talent",
-      step: "02",
-    },
-    {
-      icon: FaCheckCircle,
-      title: "Assess",
-      desc: "Rigorous evaluation to ensure perfect fit",
-      step: "03",
-    },
-    {
-      icon: FaHeadset,
-      title: "Deploy & Support",
-      desc: "Seamless onboarding and ongoing partnership",
-      step: "04",
-    },
-  ];
+const staggerContainer = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
 
-  const heroImages = [
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop",
-    "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&h=800&fit=crop",
-    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=800&fit=crop",
-  ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible((prev) => ({
-            ...prev,
-            [entry.target.id]: entry.isIntersecting,
-          }));
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('[id^="section-"]').forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+export default function AboutSkillzRevoTalent() {
+  // const [tab, setTab] = useState<"employers" | "talent">("employers");
+  const [tab, setTab] = useState("employers");
 
   return (
-    <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
-      {/* Hero Section */}
-      <motion.section
-        style={{ opacity, scale }}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      >
-        <div className="absolute inset-0 z-0">
-          <Swiper
-            modules={[Autoplay, EffectFade]}
-            effect="fade"
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            loop={true}
-            className="w-full h-full"
-          >
-            {heroImages.map((img, i) => (
-              <SwiperSlide key={i}>
-                <div className="w-full h-full relative">
-                  <img
-                    src={img}
-                    alt={`Hero ${i + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-transparent" />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* SEO (You can move these to Next.js Metadata API if preferred) */}
+      <Head>
+        <title>
+          SkillzRevo Talent | AI, Data Science & Tech Staffing Solutions
+        </title>
+        <meta
+          name="description"
+          content="SkillzRevo Talent connects skilled professionals with top companies in AI, Data Science, Cybersecurity & Emerging Tech. Hire future-ready talent today!"
+        />
+        <meta
+          name="keywords"
+          content="SkillzRevo Talent, IT staffing company, AI recruitment, Data Science staffing, tech talent solutions, contract staffing, permanent hiring, RPO services"
+        />
+      </Head>
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(120deg, rgba(29,143,255,0.15), rgba(255,105,0,0.08))",
+          }}
+        />
+        <div
+          className="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl opacity-30"
+          style={{ background: BRAND_BLUE }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 h-80 w-80 rounded-full blur-3xl opacity-30"
+          style={{ background: BRAND_ORANGE }}
+        />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={fadeUp}
+            initial="initial"
+            animate="animate"
+            className="max-w-3xl text-center mx-auto"
           >
-            <motion.h1
-              className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent"
-              animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            >
-              SkillzRevo
-            </motion.h1>
-            <motion.p
-              className="text-2xl md:text-3xl font-light mb-4 text-cyan-200"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              Talent & Staffing
-            </motion.p>
-            <motion.p
-              className="text-lg md:text-xl max-w-3xl mx-auto text-slate-300 leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              Bridging the gap between exceptional talent and forward-thinking
-              organizations across industries
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="mt-12 flex gap-6 justify-center flex-wrap"
-          >
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
-              Get Started
-            </button>
-            <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              Learn More
-            </button>
-          </motion.div>
-        </div>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <motion.div
-              className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2"
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </motion.div>
-      </motion.section>
-
-      {/* Company Overview */}
-      <section id="section-overview" className="py-32 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-transparent" />
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isVisible["section-overview"] ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Who We Are
-            </h2>
-            <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              SkillzRevo Talent & Staffing is the dedicated staffing and
-              recruitment vertical of SkillzRevo Solutions Pvt. Ltd. We bridge
-              the gap between exceptional talent and forward-thinking
-              organizations across industries.
+            {/* <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium"
+                  style={{ backgroundColor: "#f3f8ff", color: BRAND_BLUE }}>
+              <Rocket className="h-4 w-4" />
+              About SkillzRevo Talent
+            </span> */}
+            <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+              Building Future-Ready Teams for a Smarter World
+            </h1>
+            <p className="mt-4 text-lg text-gray-700 md:text-xl">
+              Empowering organizations with exceptional talent in AI, Data
+              Science, Cybersecurity, Cloud, and Emerging Technologies.
             </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section id="section-mission" className="py-32 px-6 relative">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isVisible["section-mission"] ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-blue-500/30 rounded-3xl p-10 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20"
-          >
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-              <FaRocket className="text-3xl" />
-            </div>
-            <h3 className="text-3xl font-bold mb-4 text-cyan-300">
-              Our Mission
-            </h3>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              To revolutionize workforce solutions by connecting the right
-              talent with the right opportunities, enabling businesses to thrive
-              and professionals to achieve meaningful career growth.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isVisible["section-mission"] ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-10 hover:border-purple-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
-          >
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-              <FaLightbulb className="text-3xl" />
-            </div>
-            <h3 className="text-3xl font-bold mb-4 text-purple-300">
-              Our Vision
-            </h3>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              To be the most trusted global staffing partner, known for
-              innovation, expertise, and unwavering commitment to client and
-              candidate success.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section id="section-values" className="py-32 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible["section-values"] ? { opacity: 1, y: 0 } : {}}
-            className="text-5xl md:text-6xl font-bold text-center mb-20 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
-          >
-            Core Values
-          </motion.h2>
-
-          <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="pb-16 overflow-x-hidden overflow-y-visible"
-          >
-            {values.map((value, i) => (
-              <SwiperSlide key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={
-                    isVisible["section-values"] ? { opacity: 1, y: 0 } : {}
-                  }
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 h-80 flex flex-col items-center text-center hover:scale-105 transition-transform duration-500 hover:border-slate-600"
-                >
-                  <div
-                    className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                  >
-                    <value.icon className="text-4xl" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-                  <p className="text-slate-300 leading-relaxed">{value.desc}</p>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-
-      {/* Staffing Process */}
-      <section
-        id="section-process"
-        className="py-32 px-6 bg-gradient-to-b from-slate-950 to-slate-900 relative"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.1),transparent_50%)]" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible["section-process"] ? { opacity: 1, y: 0 } : {}}
-            className="text-5xl md:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"
-          >
-            Our Staffing Approach
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isVisible["section-process"] ? { opacity: 1 } : {}}
-            className="text-xl text-center text-slate-400 mb-20"
-          >
-            A proven 4-step process for exceptional results
-          </motion.p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                animate={
-                  isVisible["section-process"] ? { opacity: 1, y: 0 } : {}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Hire Talent
+                    <Handshake className="ml-2 h-5 w-5" />
+                  </span>
                 }
-                transition={{ delay: i * 0.15 }}
-                className="relative group"
+                pageUrl="/about-us"
+                className="group px-5 py-3 bg-gradient-to-r from-[#ff6900] to-[#d85a00] text-white rounded-xl font-semibold shadow-lg shadow-[#ff6900]/25 hover:shadow-xl hover:shadow-[#ff6900]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+              />
+
+              <a
+                href="https://www.skillzrevo.com/work-with-us"
+                className="group px-5 py-3 flex w-fit bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
               >
-                <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 rounded-3xl p-8 h-full hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20 hover:-translate-y-2">
-                  <div className="text-6xl font-black text-slate-700/50 mb-4">
-                    {step.step}
-                  </div>
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <step.icon className="text-3xl" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-cyan-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-300 leading-relaxed">{step.desc}</p>
+                Apply Now
+                <Users className="ml-2 h-5 w-5" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 1: Who We Are */}
+      <section className="relative border-t border-gray-100">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2">
+          <motion.div
+            variants={fadeUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold md:text-4xl">
+              Empowering Businesses with Talent That Transforms
+            </h2>
+            <p className="mt-4 text-gray-700">
+              SkillzRevo Talent is the specialized talent & staffing arm of the
+              SkillzRevo ecosystem. As a division of
+              <span className="font-semibold">
+                {" "}
+                SkillzRevo Solutions Pvt. Ltd.
+              </span>
+              , we bridge the gap between trained, job-ready professionals and
+              future-forward employers — creating sustainable growth for both.
+            </p>
+            <p className="mt-3 text-gray-700">
+              Backed by the SkillzRevo Academy, we combine training excellence,
+              deep domain knowledge, and modern recruitment practices to deliver
+              quality, speed, and reliability in every engagement.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm"
+                style={{ background: "#eef6ff", color: BRAND_BLUE }}
+              >
+                <FaNetworkWired /> Integrated Pipeline
+              </span>
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm"
+                style={{ background: "#fff1e9", color: BRAND_ORANGE }}
+              >
+                <FaRegHandshake /> Strategic Partner
+              </span>
+            </div>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="relative h-64 w-full overflow-hidden rounded-2xl bg-gray-100 shadow-lg md:h-96"
+          >
+            {/* Placeholder visual / replace with image */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 20% 30%, rgba(29,143,255,0.2), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,105,0,0.2), transparent 45%)",
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="rounded-xl bg-white/70 text-center ">
+                <img
+                  src="/images/Collab.jpg"
+                  alt=""
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 2: Mission & Vision */}
+      <section className="bg-gray-50">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-16 md:grid-cols-2"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <Rocket style={{ color: BRAND_ORANGE }} />
+              <h3 className="text-2xl font-semibold">Our Mission</h3>
+            </div>
+            <p className="mt-3 text-gray-700">
+              To connect qualified, trained, and motivated talent with
+              organizations seeking expertise in emerging technologies —
+              creating meaningful opportunities and driving innovation,
+              efficiency, and transformation.
+            </p>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <Globe2 style={{ color: BRAND_BLUE }} />
+              <h3 className="text-2xl font-semibold">Our Vision</h3>
+            </div>
+            <p className="mt-3 text-gray-700">
+              To become a leading AI-driven staffing partner and the go-to
+              talent marketplace for roles in AI, Data Science, Analytics,
+              Cybersecurity, Cloud, and other future-focused domains — in India
+              and beyond.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Section 3: What We Do */}
+      <section>
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <h3 className="text-3xl font-bold">
+            Comprehensive Staffing & Workforce Solutions
+          </h3>
+          <p className="mt-2 max-w-3xl text-gray-700">
+            From full-time hiring to contract and offshore models, we tailor
+            staffing to your scale, duration, and skill depth.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Permanent Hiring",
+                desc: "Build strong, long-term teams across AI, Data, and Tech roles.",
+                icon: <FaUserTie className="h-6 w-6" />,
+              },
+              {
+                title: "Contract Staffing",
+                desc: "Scale instantly with project-based or short-term professionals.",
+                icon: <Layers className="h-6 w-6" />,
+              },
+              {
+                title: "Offshore & Remote Teams",
+                desc: "Access pre-trained, cost-effective offshore and hybrid teams.",
+                icon: <Cloud className="h-6 w-6" />,
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                variants={fadeUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-lg transition hover:shadow-xl"
+              >
+                <div
+                  className="mb-4 inline-flex rounded-xl p-3"
+                  style={{
+                    backgroundColor: i % 2 === 0 ? "#eef6ff" : "#fff1e9",
+                    color: i % 2 === 0 ? BRAND_BLUE : BRAND_ORANGE,
+                  }}
+                >
+                  {card.icon}
                 </div>
-                {i < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-8 w-8 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent" />
-                )}
+                <h4 className="text-xl font-semibold">{card.title}</h4>
+                <p className="mt-2 text-gray-700">{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Recruitment Process Outsourcing (RPO)",
+                desc: "End-to-end talent management from sourcing to onboarding.",
+                icon: <LineChart className="h-6 w-6" />,
+              },
+              {
+                title: "Campus & Fresher Hiring",
+                desc: "Access certified, trained fresh graduates ready to perform.",
+                icon: <GraduationCap className="h-6 w-6" />,
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                variants={fadeUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-lg transition hover:shadow-xl"
+              >
+                <div
+                  className="mb-4 inline-flex rounded-xl p-3"
+                  style={{
+                    backgroundColor: i % 2 === 0 ? "#eef6ff" : "#fff1e9",
+                    color: i % 2 === 0 ? BRAND_BLUE : BRAND_ORANGE,
+                  }}
+                >
+                  {card.icon}
+                </div>
+                <h4 className="text-lg font-semibold">{card.title}</h4>
+                <p className="mt-2 text-gray-700">{card.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
-        <motion.div
-          animate={{
-            background: [
-              "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(139,92,246,0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.3) 0%, transparent 50%)",
-            ],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute inset-0"
-        />
-
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
-          >
-            Ready to Transform Your Workforce?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto"
-          >
-            Partner with SkillzRevo and experience the future of talent
-            acquisition
-          </motion.p>
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-12 py-5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full font-bold text-xl hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300"
-          >
-            Contact Us Today
-          </motion.button>
+      {/* Section 4: Why Choose */}
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <h3 className="text-3xl font-bold">Why Choose SkillzRevo Talent</h3>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Integrated Learning-to-Hiring Model",
+                desc: "Backed by SkillzRevo Academy, providing access to pre-trained, industry-ready candidates.",
+                icon: <Brain className="h-6 w-6" />,
+              },
+              {
+                title: "Specialized Tech Recruitment",
+                desc: "Focused exclusively on Data, AI, Cloud, Cybersecurity & Emerging Tech roles.",
+                icon: <ShieldCheck className="h-6 w-6" />,
+              },
+              {
+                title: "Quality-First Approach",
+                desc: "Multi-stage assessments ensure only the right-fit candidates are shortlisted.",
+                icon: <CheckCircle2 className="h-6 w-6" />,
+              },
+              {
+                title: "Scalable Models & Global Reach",
+                desc: "Permanent to offshore teams, with pan-India and international coverage.",
+                icon: <Globe2 className="h-6 w-6" />,
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="flex gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-lg"
+              >
+                <div
+                  className="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-xl"
+                  style={{
+                    backgroundColor: idx % 2 === 0 ? "#eef6ff" : "#fff1e9",
+                    color: idx % 2 === 0 ? BRAND_BLUE : BRAND_ORANGE,
+                  }}
+                >
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">{item.title}</h4>
+                  <p className="mt-1 text-gray-700">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 bg-slate-950 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-slate-400 text-lg mb-2">
-            SkillzRevo Talent & Staffing
-          </p>
-          <p className="text-slate-500">
-            A vertical of SkillzRevo Solutions Pvt. Ltd.
+      {/* Section 5: For Employers & For Talent (Tabs) */}
+      <section>
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="flex items-center justify-between gap-4">
+            <h3 className="text-3xl font-bold">Built For Employers & Talent</h3>
+            <div className="flex rounded-xl border-gray-200 border p-1">
+              <button
+                onClick={() => setTab("employers")}
+                className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+                  tab === "employers" ? "text-white" : "text-gray-700"
+                }`}
+                style={{
+                  backgroundColor:
+                    tab === "employers" ? BRAND_ORANGE : "transparent",
+                }}
+              >
+                For Employers
+              </button>
+              <button
+                onClick={() => setTab("talent")}
+                className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+                  tab === "talent" ? "text-white" : "text-gray-700"
+                }`}
+                style={{
+                  backgroundColor:
+                    tab === "talent" ? BRAND_BLUE : "transparent",
+                }}
+              >
+                For Talent
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            {tab === "employers" ? (
+              <motion.div
+                key="emp"
+                variants={fadeUp}
+                initial="initial"
+                animate="animate"
+                className="grid grid-cols-1 gap-6 md:grid-cols-2"
+              >
+                {[
+                  "Access pre-screened, certified talent",
+                  "Role consultation & customized staffing plans",
+                  "Fast turnaround & transparent communication",
+                  "Dedicated account managers for every engagement",
+                ].map((point) => (
+                  <div
+                    key={point}
+                    className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+                  >
+                    <div
+                      className="mt-1 h-5 w-5"
+                      style={{ color: BRAND_ORANGE }}
+                    >
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <p className="text-gray-800">{point}</p>
+                  </div>
+                ))}
+                <div className="md:col-span-2">
+                  <PopupForm
+                    ctaTitle={
+                      <span className="flex items-center justify-center gap-2">
+                        Hire Talent
+                        <Handshake className="ml-2 h-5 w-5" />
+                      </span>
+                    }
+                    pageUrl="/about-us"
+                    className="group px-5 py-3 bg-gradient-to-r from-[#ff6900] to-[#d85a00] text-white rounded-xl font-semibold shadow-lg shadow-[#ff6900]/25 hover:shadow-xl hover:shadow-[#ff6900]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                  />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="tal"
+                variants={fadeUp}
+                initial="initial"
+                animate="animate"
+                className="grid grid-cols-1 gap-6 md:grid-cols-2"
+              >
+                {[
+                  "Work with leading tech organizations",
+                  "Personalized guidance & interview preparation",
+                  "Opportunities in AI, Data, Cloud & Cybersecurity",
+                  "Continuous learning via SkillzRevo Academy",
+                ].map((point) => (
+                  <div
+                    key={point}
+                    className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm"
+                  >
+                    <div className="mt-1 h-5 w-5" style={{ color: BRAND_BLUE }}>
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <p className="text-gray-800">{point}</p>
+                  </div>
+                ))}
+                <div className="md:col-span-2">
+                  <a
+                    href="https://www.skillzrevo.com/work-with-us"
+                    className="group px-5 py-3 flex w-fit bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+                  >
+                    Apply Now
+                    <Users className="ml-2 h-5 w-5" />
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: The SkillzRevo Ecosystem */}
+      <section className="bg-gray-50">
+        {/* <div className="mx-auto max-w-7xl px-6 py-16">
+          <h3 className="text-3xl font-bold">One Group. Three Divisions. Infinite Possibilities.</h3>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "SkillzRevo Academy",
+                subtitle: "Training & Upskilling",
+                cta: "Visit Academy",
+                color: BRAND_BLUE,
+                tagline: "Learn. Evolve. Excel.",
+              },
+              {
+                title: "SkillzRevo Talent",
+                subtitle: "Staffing & Workforce Solutions",
+                cta: "Visit Talent",
+                color: BRAND_ORANGE,
+                tagline: "Hire. Scale. Succeed.",
+              },
+              {
+                title: "SkillzRevo Consulting",
+                subtitle: "Consulting & Enterprise Solutions",
+                cta: "Visit Consulting",
+                color: BRAND_BLUE,
+                tagline: "Transform. Innovate. Lead.",
+              },
+            ].map((col) => (
+              <motion.div
+                key={col.title}
+                variants={fadeUp}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+              >
+                <p className="text-sm font-medium" style={{ color: col.color }}>
+                  {col.tagline}
+                </p>
+                <h4 className="mt-1 text-xl font-semibold">{col.title}</h4>
+                <p className="mt-1 text-gray-700">{col.subtitle}</p>
+                <button
+                  className="mt-4 rounded-lg px-4 py-2 text-sm font-semibold text-white"
+                  style={{ background: col.color }}
+                >
+                  {col.cta}
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div> */}
+        <MainSegments />
+      </section>
+
+      {/* Section 7: Our Promise */}
+      <section>
+        <div className="mx-auto max-w-7xl px-6 py-16">
+          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+            <h3 className="text-3xl font-bold">Our Promise</h3>
+            <p className="mt-3 max-w-4xl text-gray-700">
+              At SkillzRevo Talent, integrity, quality, and mutual success are
+              central to everything we do. We don’t just fill roles — we build
+              partnerships, enable careers, and strengthen businesses with
+              future-ready talent.
+            </p>
+            <blockquote
+              className="mt-5 border-l-4 pl-4 text-lg font-semibold"
+              style={{ borderColor: BRAND_BLUE }}
+            >
+              We don’t just fill roles — we build success stories.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8: CTA */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(90deg, ${BRAND_BLUE}11, ${BRAND_ORANGE}11)`,
+            borderColor: `linear-gradient(90deg, ${BRAND_BLUE}11, ${BRAND_ORANGE}11)`,
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-16">
+          <div className="rounded-2xl border border-gray-200 bg-white p-10 shadow-sm">
+            <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+              <div className="md:col-span-2">
+                <h3 className="text-2xl font-bold">
+                  Let’s Build the Workforce of Tomorrow, Today.
+                </h3>
+                <p className="mt-2 max-w-3xl text-gray-700">
+                  Whether you’re an employer seeking the right talent or a
+                  professional ready for your next leap — we connect skill with
+                  opportunity.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 md:justify-end">
+                <PopupForm
+                ctaTitle={
+                  <span className="flex items-center justify-center gap-2">
+                    Hire Talent
+                    <Handshake className="ml-2 h-5 w-5" />
+                  </span>
+                }
+                pageUrl="/about-us"
+                className="group px-5 py-3 bg-gradient-to-r from-[#ff6900] to-[#d85a00] text-white rounded-xl font-semibold shadow-lg shadow-[#ff6900]/25 hover:shadow-xl hover:shadow-[#ff6900]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+              />
+
+              <a
+                href="https://www.skillzrevo.com/work-with-us"
+                className="group px-5 py-3 flex w-fit bg-gradient-to-r from-[#1d8fff] to-[#0066cc] text-white rounded-xl font-semibold shadow-lg shadow-[#1d8fff]/25 hover:shadow-xl hover:shadow-[#1d8fff]/40 transition-all transform hover:scale-[1.02] active:scale-[0.98] duration-200"
+              >
+                Apply Now
+                <Users className="ml-2 h-5 w-5" />
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Note / Short Summary */}
+      <footer className="border-t border-gray-100">
+        <div className="mx-auto max-w-7xl px-6 py-10 text-sm text-gray-600">
+          <p>
+            SkillzRevo Talent, a division of SkillzRevo Solutions Pvt. Ltd., is
+            a specialized staffing and workforce solutions partner focused on
+            Data Science, AI, Cybersecurity, Cloud, and Emerging Technologies.
+            From permanent and contract staffing to offshore teams and RPO
+            services, we help businesses scale faster with the right talent —
+            driving growth, innovation, and future-readiness.
           </p>
         </div>
       </footer>
+
+      {/* Hidden: SEO Keywords you can feed to CMS/meta */}
+      <div className="sr-only">
+        Staffing company in India, IT staffing solutions, AI and Data Science
+        recruitment, Contract staffing agency, EdTech staffing solutions, Tech
+        talent hiring company, Corporate recruitment partner, Emerging
+        technology hiring, SkillzRevo Talent staffing solutions, Future-ready
+        workforce
+      </div>
     </div>
   );
 }
