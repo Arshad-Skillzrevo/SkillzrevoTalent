@@ -81,14 +81,19 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="https://skillzrevo.com/" className="flex items-center">
           {/* 2. Use Next.js <Image> for performance */}
-          <Image
+          <div className="relative w-[200px] h-[50px]">
+            <Image
             src="/Logo.webp"
             alt="SkillzRevo Logo"
-            width={160} // Set appropriate width
-            height={64} // Set appropriate height
-            className="h-16 w-auto"
+            // width={200} // Set appropriate width
+            // height={50}
+            fill
+             // Set appropriate height
+            // w-[200px] h-[50px]
+            className="w-auto"
             priority // Load logo first
           />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
