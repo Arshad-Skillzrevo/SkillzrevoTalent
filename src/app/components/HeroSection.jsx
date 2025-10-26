@@ -69,18 +69,6 @@ export default function HeroSection() {
             across industries and emerging technologies.
           </p>
           <div className="flex flex-wrap gap-4 pt-4 items-center justify-center z-20">
-            {/* <Link
-              href="/hire-talent"
-              className="px-6 py-3 bg-blue-600 text-white font-medium rounded-sm shadow hover:bg-blue-700 transition"
-            >
-              Hire Talent (For Employers)
-            </Link>
-            <Link
-              href="/find-jobs"
-              className="px-6 py-3 bg-orange-500 text-white font-medium rounded-sm shadow hover:bg-orange-600 transition"
-            >
-              Find Jobs (For Job Seekers)
-            </Link> */}
             <PopupForm
               ctaTitle="Hire Talent (For Employers)"
               pageUrl="skillzrevotalent.com"
