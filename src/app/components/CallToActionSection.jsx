@@ -40,7 +40,7 @@ export default function CallToActionSection() {
               service="RPO"
             /> */}
             <Link
-              href="https://skillzrevo.com/work-with-us"
+              href="/jobs"
               target="_blank"
               className="px-6 py-3 bg-orange-500 text-white font-medium rounded-sm shadow hover:bg-orange-600 transition"
             >
