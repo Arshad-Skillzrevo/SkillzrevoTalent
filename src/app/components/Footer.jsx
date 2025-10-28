@@ -229,14 +229,14 @@ export default function Footer() {
       <div className="max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8 content-center items-center justify-center mx-auto max-md:px-4 text-center border-t border-gray-700">
         <div className="flex justify-center md:justify-end text-xs max-md:mx-auto text-gray-400  py-4 gap-2 mt-2 md:mt-0 w-[250px]">
           <a
-            href="https://www.skillzrevo.com/ShippingandDelivery"
+            href="/ShippingandDelivery"
             className="hover:underline"
           >
             Shipping & Delivery 
           </a>
           |
           <a
-            href="https://www.skillzrevo.com/cancellation-refund-policy"
+            href="/cancellation-refund-policy"
             className="hover:underline"
           >
             Refund Policy
@@ -248,13 +248,13 @@ export default function Footer() {
         </p>
         <div className="flex justify-center md:justify-end text-xs text-gray-400 gap-4 mt-2 md:mt-0">
           <a
-            href="https://www.skillzrevo.com/TermsandConditions"
+            href="/TermsandConditions"
             className="hover:underline"
           >
             Terms & Conditions
           </a>
           <a
-            href="https://www.skillzrevo.com/PrivacyPolicy"
+            href="/PrivacyPolicy"
             className="hover:underline"
           >
             Privacy Policy
