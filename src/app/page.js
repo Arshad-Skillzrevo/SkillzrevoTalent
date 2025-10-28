@@ -105,6 +105,23 @@ const faqs = [
 
 ];
 
+export const metadata = {
+  title: "Talent & Staffing Company in India | IT Recruitment Experts – SkillzRevo Talent",
+  description:
+    "Hire top professionals with SkillzRevo Talent — India’s trusted staffing company for IT, contract, and permanent recruitment solutions.",
+  keywords: ["Talent & Staffing Company India", "IT Recruitment Experts", "Staffing Solutions India"],
+  openGraph: {
+    title: "Talent & Staffing Company in India | IT Recruitment Experts – SkillzRevo Talent",
+    description:
+      "Hire top professionals with SkillzRevo Talent — India’s trusted staffing company for IT, contract, and permanent recruitment solutions.",
+    url: "https://www.skillzrevotalent.com",
+    siteName: "SkillzRevo Talent",
+    type: "website",
+  },
+};
+
+
+
 export default function Home() {
   return (
     <>
