@@ -17,7 +17,7 @@ export default function TopVerticalSwitcher(){
       <div className="mx-auto flex h-full items-center">
         {verticals.map(v=>{
           
-          const isActive = pathname.includes(`/${v.slug}`) || (v.slug==="talent" && pathname==="/")
+          const isActive = pathname.includes(`/${v.slug}`) || (v.slug==="talent")
 
           return(
             <Link
