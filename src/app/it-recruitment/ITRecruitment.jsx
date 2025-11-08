@@ -285,7 +285,7 @@ const ITRecruitment = () => {
   ];
 
   return (
-    <div className="bg-white text-gray-800 overflow-hidden">
+    <div className="bg-white text-gray-800 ">
       {/* Hero Section */}
       <div className="relative bg-white overflow-hidden py-8 md:py-16">
         {/* Subtle Background Pattern */}

@@ -13,7 +13,7 @@ export default function TopVerticalSwitcher(){
   const pathname = usePathname()
 
   return(
-    <div className="sticky top-0 z-[9999] w-full bg-[#1d8fff] text-white text-xs">
+    <div className="sticky top-0 z-[20] w-full bg-[#1d8fff] text-white text-xs">
       <div className="mx-auto flex h-full items-center">
         {verticals.map(v=>{
           

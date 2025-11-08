@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import TopVerticalSwitcher from "./components/TopVerticalSwitcher";
+import PopupForm from "./components/PopupForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,8 @@ export default function RootLayout({ children }) {
       >
       {/* <TopVerticalSwitcher /> */}
       <Navbar />
-        {children}
+        <main>{children}</main>
+       
         <Footer />
       </body>
     </html>

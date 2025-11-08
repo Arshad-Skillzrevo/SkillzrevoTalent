@@ -77,7 +77,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-white sticky top-0 z-50 shadow-md">
+    <header className="bg-white sticky top-0 z-20 shadow-md">
       <TopVerticalSwitcher />
       <nav className="mx-auto flex max-w-8xl items-center justify-between gap-5 px-4 py-3 lg:px-8 xl:px-16">
         {/* Logo */}
