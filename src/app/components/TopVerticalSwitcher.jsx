@@ -14,7 +14,7 @@ export default function TopVerticalSwitcher(){
 
   return(
     <div className="sticky top-0 z-[9999] w-full bg-[#1d8fff] text-white text-xs">
-      <div className="mx-auto flex px-4 h-full items-center">
+      <div className="mx-auto flex h-full items-center">
         {verticals.map(v=>{
           
           const isActive = pathname.includes(`/${v.slug}`) || (v.slug==="talent" && pathname==="/")
