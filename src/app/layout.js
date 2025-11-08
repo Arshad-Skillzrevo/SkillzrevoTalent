@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import TopVerticalSwitcher from "./components/TopVerticalSwitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased`}
       >
+      {/* <TopVerticalSwitcher /> */}
       <Navbar />
         {children}
         <Footer />

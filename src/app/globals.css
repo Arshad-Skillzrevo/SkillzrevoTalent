@@ -19,7 +19,7 @@
     --foreground: #171717;
   }
 }
-.font-oswald {
+.heading-oswald {
   font-family: var(--font-oswald);
 }
 

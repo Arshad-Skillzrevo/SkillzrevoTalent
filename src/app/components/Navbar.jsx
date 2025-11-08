@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import TopVerticalSwitcher from "./TopVerticalSwitcher";
 
 // 1. Centralized navigation data
 const navLinks = [
@@ -77,9 +78,10 @@ export default function Navbar() {
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow-md">
+      <TopVerticalSwitcher />
       <nav className="mx-auto flex max-w-8xl items-center justify-between gap-5 px-4 py-3 lg:px-8 xl:px-16">
         {/* Logo */}
-        <Link href="https://skillzrevo.com/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           {/* 2. Use Next.js <Image> for performance */}
           <div className="relative w-[200px] h-[50px]">
             <Image
@@ -90,7 +92,7 @@ export default function Navbar() {
             fill
              // Set appropriate height
             // w-[200px] h-[50px]
-            className="w-auto"
+            className="object-contain"
             priority // Load logo first
           />
           </div>
