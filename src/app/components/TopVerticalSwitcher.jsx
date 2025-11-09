@@ -10,20 +10,20 @@ const verticals = [
 ]
 
 export default function TopVerticalSwitcher(){
-  const pathname = usePathname()
+  // const pathname = usePathname()
 
   return(
     <div className="sticky top-0 z-[20] w-full bg-[#1d8fff] text-white text-xs">
       <div className="mx-auto flex h-full items-center">
         {verticals.map(v=>{
           
-          const isActive = pathname.includes(`/${v.slug}`) || (v.slug==="talent")
+          const isActive = (v.slug==="talent")
 
           return(
             <Link
               href={v.href}
               key={v.name}
-              className={`px-6 py-3 heading-oswald uppercase text-sm font-medium transition-colors ${isActive ? 'bg-white text-[#1d8fff] font-semibold' : 'hover:bg-white/20'}
+              className={`px-4 md:px-6 py-3 heading-oswald uppercase md:text-sm font-medium transition-colors ${isActive ? 'bg-white text-[#1d8fff] font-semibold' : 'hover:bg-white/20'}
               `}
             >
               {v.name}
