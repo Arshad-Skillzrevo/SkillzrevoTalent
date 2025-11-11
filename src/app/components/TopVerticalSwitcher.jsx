@@ -3,7 +3,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const verticals = [
-  {name:"Skillzrevo", slug:"skillzrevo", href:"https://skillzrevo.com"},
+  {name:"Home", slug:"skillzrevo", href:"https://skillzrevo.com"},
   {name:"Academy", slug:"academy", href:"https://academy.skillzrevo.com"},
   {name:"Talent", slug:"talent", href:"https://talent.skillzrevo.com"},
   {name:"Consulting", slug:"consulting", href:"https://consulting.skillzrevo.com"},
