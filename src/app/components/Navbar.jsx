@@ -55,7 +55,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const pathname = usePathname(); // Hook to get the current URL path
 
-  // Close mobile menu on route change
+  
   useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
