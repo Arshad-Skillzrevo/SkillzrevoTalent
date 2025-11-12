@@ -45,7 +45,7 @@ export default function FlexibleEngagement() {
 
           <PopupForm
             ctaTitle="Get in Touch"
-            pageUrl="skillzrevotalent.com"
+            pageUrl="talent.skillzrevo.com"
             className="px-6 py-3 text-[#1d8fff] bg-white font-semibold rounded-sm hover:bg-gray-100 transition shadow-lg"
           />
         </div>

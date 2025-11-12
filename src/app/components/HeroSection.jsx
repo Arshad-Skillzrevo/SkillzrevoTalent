@@ -71,12 +71,12 @@ export default function HeroSection() {
           <div className="flex flex-wrap gap-4 pt-4 items-center justify-center z-20">
             <PopupForm
               ctaTitle="Hire Talent (For Employers)"
-              pageUrl="skillzrevotalent.com"
+              pageUrl="talent.skillzrevo.com"
               className="px-6 py-3 text-[#1d8fff] bg-white font-semibold rounded-sm hover:bg-gray-100 transition shadow-lg"
             />
             {/* <PopupForm
               ctaTitle="Download Brochure"
-              pageUrl="skillzrevotalent.com"
+              pageUrl="talent.skillzrevo.com"
               className="px-8 py-4 bg-[#1d8fff] !text-[#fff] rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"
               service="RPO"
             /> */}

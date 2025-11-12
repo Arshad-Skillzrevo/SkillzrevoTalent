@@ -39,7 +39,7 @@ export default function MainSegments() {
       bg: "bg-green-50",
       accent: "bg-green-500",
       cta: "Explore Staffing Solutions",
-      link: "https://skillzrevotalent.com",
+      link: "https://talent.skillzrevo.com",
     },
     {
       title: "Consulting",

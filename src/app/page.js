@@ -114,7 +114,7 @@ export const metadata = {
     title: "Talent & Staffing Company in India | IT Recruitment Experts – SkillzRevo Talent",
     description:
       "Hire top professionals with SkillzRevo Talent — India’s trusted staffing company for IT, contract, and permanent recruitment solutions.",
-    url: "https://www.skillzrevotalent.com",
+    url: "https://www.talent.skillzrevo.com",
     siteName: "SkillzRevo Talent",
     type: "website",
   },
