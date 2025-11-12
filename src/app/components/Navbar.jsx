@@ -79,10 +79,10 @@ export default function Navbar() {
   return (
     <header className="bg-white sticky top-0 z-20 shadow-md">
       <TopVerticalSwitcher />
-      <nav className="mx-auto flex max-w-8xl items-center justify-between gap-5 px-4 py-3 lg:px-8 xl:px-16">
+      <nav className="mx-auto flex max-w-8xl items-center justify-between gap-5 px-4 py-4 lg:px-8 xl:px-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          {/* 2. Use Next.js <Image> for performance */}
+        <Link href="/" className="flex md:hidden items-center">
+          
           <div className="relative w-[200px] h-[50px]">
             <Image
             src="/Logo.webp"
