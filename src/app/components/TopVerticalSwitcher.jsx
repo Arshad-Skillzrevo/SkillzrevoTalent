@@ -38,7 +38,7 @@ const verticals = [
 
 export default function TopVerticalSwitcher() {
   return (
-    <div className="sticky top-0 z-[20] w-full flex items-end justify-between bg-[#1d8fff] text-white text-xs">
+    <div className="sticky top-0 z-[20] w-full flex items-center justify-between bg-[#1d8fff] text-white text-xs">
   
       <div className="flex items-end">
         <Link href="/" className="md:block h-full bg-white border-r-2 border-[#1d8fff] hidden px-4">
