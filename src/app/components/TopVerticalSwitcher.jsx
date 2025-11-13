@@ -7,6 +7,7 @@ import {
   BriefcaseIcon,
   BuildingOffice2Icon,
 } from "@heroicons/react/24/outline"
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa"
 
 const verticals = [
   {
@@ -37,9 +38,10 @@ const verticals = [
 
 export default function TopVerticalSwitcher() {
   return (
-    <div className="sticky top-0 z-[20] w-full flex items-end bg-[#1d8fff] text-white text-xs">
-      {/* Logo */}
-      <Link href="/" className="md:block h-full bg-white hidden px-4">
+    <div className="sticky top-0 z-[20] w-full flex items-end justify-between bg-[#1d8fff] text-white text-xs">
+  
+      <div className="flex items-end">
+        <Link href="/" className="md:block h-full bg-white border-r-2 border-[#1d8fff] hidden px-4">
         <div className="relative w-[200px] h-[60px] ">
           <Image
             src="/Logo.webp"
@@ -74,6 +76,41 @@ export default function TopVerticalSwitcher() {
           )
         })}
       </div>
+      </div>
+
+        <div className="flex space-x-2 text-white">
+            <a
+              href="https://www.facebook.com/skillzrevo/"
+              className="hover:bg-[#ff5e14] p-2 rounded-md transition-colors duration-200"
+            >
+              <FaFacebookF className="size-6" />
+            </a>
+            <a
+              href="https://x.com/skillzrevo89393"
+              className="hover:bg-[#ff5e14] p-2 rounded-md transition-colors duration-200"
+            >
+              <FaTwitter className="size-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/skillzrevo/"
+              className="hover:bg-[#ff5e14] p-2 rounded-md transition-colors duration-200"
+            >
+              <FaLinkedinIn className="size-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/skillzrevo"
+              className="hover:bg-[#ff5e14] p-2 rounded-md transition-colors duration-200"
+            >
+              <FaInstagram className="size-6" />
+            </a>
+            <a
+              href="https://www.youtube.com/@SkillzRevo"
+              className="hover:bg-[#ff5e14] p-2 rounded-md transition-colors duration-200"
+            >
+              <FaYoutube className="size-6" />
+            </a>
+          </div>
+
     </div>
   )
 }
