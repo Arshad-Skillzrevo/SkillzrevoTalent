@@ -1,0 +1,26 @@
+# robots.txt for https://talent.skillzrevo.com/
+# Allow search engine crawling of public staffing pages, blocking non-public or duplicate paths.
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /user/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /account/
+Disallow: /dashboard/
+Disallow: /jobs?filter=  # if URL query parameter used for filtering jobs and duplicates
+Disallow: /*?utm_        # block tracking-parameter variations
+Disallow: /*?sessionid=
+
+# Crawl-delay (optional for heavy site)
+Crawl-delay: 5
+
+# Preferred host (optional, if canonical is consistent)
+Host: talent.skillzrevo.com
+
+# Sitemap (replace if different path)
+Sitemap: https://talent.skillzrevo.com/sitemap.xml
