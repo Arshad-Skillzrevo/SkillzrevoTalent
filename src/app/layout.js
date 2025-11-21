@@ -27,6 +27,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="b-mCQRVb4tQaUKyjLNJcvQ0pLDb6UvE7qIgmJQVOZc8" />
+
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased`}
       >
