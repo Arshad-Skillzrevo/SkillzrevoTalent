@@ -4,7 +4,7 @@ import Link from "next/link";
 export async function generateStaticParams() {
   try {
     const res = await fetch(
-      "https://lms.skillzrevo.com/wp-json/wp/v2/posts?per_page=100&_fields=slug",
+      "https://tutor.skillzrevo.com/wp-json/wp/v2/posts?per_page=100&_fields=slug",
       { next: { revalidate: 3600 } }
     );
 
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   try {
     const res = await fetch(
-      `https://lms.skillzrevo.com/wp-json/wp/v2/posts?slug=${params.slug}&_embed`,
+      `https://tutor.skillzrevo.com/wp-json/wp/v2/posts?slug=${params.slug}&_embed`,
       { next: { revalidate: 3600 } }
     );
 
@@ -53,7 +53,7 @@ export default async function BlogDetail({ params }) {
 
   try {
     const res = await fetch(
-      `https://lms.skillzrevo.com/wp-json/wp/v2/posts?slug=${params.slug}&_embed`,
+      `https://tutor.skillzrevo.com/wp-json/wp/v2/posts?slug=${params.slug}&_embed`,
       { next: { revalidate: 60 } }
     );
 

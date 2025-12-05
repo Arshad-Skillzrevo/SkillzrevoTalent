@@ -11,7 +11,7 @@ export default function BlogList() {
   // fetch posts when page changes
   useEffect(() => {
     setLoading(true);
-    fetch(`https://lms.skillzrevo.com/wp-json/wp/v2/posts?per_page=9&page=${page}&_embed`)
+    fetch(`https://tutor.skillzrevo.com/wp-json/wp/v2/posts?per_page=9&page=${page}&_embed`)
       .then((res) => {
         // WP sends total pages in header
         setTotalPages(parseInt(res.headers.get("X-WP-TotalPages")) || 1);

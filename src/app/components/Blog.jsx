@@ -9,7 +9,7 @@ export default function BlogSlider() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://lms.skillzrevo.com/wp-json/wp/v2/posts?per_page=8&_embed")
+    fetch("https://tutor.skillzrevo.com/wp-json/wp/v2/posts?per_page=8&_embed")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
